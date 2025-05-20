@@ -1,0 +1,97 @@
+fun log(level, message) {
+    // Yerel çağrı: native_debug.log(level, message);
+    return none;
+}
+
+// Konsola bir bilgi mesajı yazdırır.
+fun info(message) {
+    log("INFO", message);
+    return none;
+}
+
+// Konsola bir uyarı mesajı yazdırır.
+fun warn(message) {
+    log("WARNING", message);
+    return none;
+}
+
+// Konsola bir hata mesajı yazdırır.
+fun error(message) {
+    log("ERROR", message);
+    return none;
+}
+
+// Bir değeri (herhangi bir tür) konsola yazdırır.
+fun printValue(value) {
+    // Yerel çağrı: native_debug.printValue(value);
+    return none;
+}
+
+// --- Varlık Doğrulama ve Kontroller ---
+
+// Bir ifadenin doğru (true) olduğunu varsayar. Eğer false ise bir hata mesajı ile durur (assertion).
+// condition: Doğrulanacak boolean ifade.
+// message: Koşul false olduğunda gösterilecek hata mesajı.
+fun assert(condition, message) {
+    // Yerel çağrı: native_debug.assert(condition, message);
+    return none; // Assert fail olursa, C++ tarafı bir hata fırlatabilir veya programı durdurabilir.
+}
+
+// Bir kod bölümünün yalnızca hata ayıklama modunda çalışmasını sağlar.
+// Debug modunda değilse hiçbir şey yapmaz.
+fun ifDebug(callbackFunction) {
+    // Yerel çağrı: native_debug.ifDebug(callbackFunction);
+    return none;
+}
+
+// --- Performans ve Zamanlayıcı (Debugging İçin) ---
+
+// Bir kod bölümünün yürütme süresini ölçmek için bir zamanlayıcı başlatır.
+// timerName: Bu zamanlayıcıya verilecek benzersiz isim.
+fun startTimer(timerName) {
+    // Yerel çağrı: native_debug.startTimer(timerName);
+    return none;
+}
+
+// Belirli bir zamanlayıcıyı durdurur ve geçen süreyi (milisaniye cinsinden) konsola yazdırır.
+// timerName: Durdurulacak zamanlayıcının ismi.
+fun stopTimer(timerName) {
+    // Yerel çağrı: native_debug.stopTimer(timerName);
+    return none;
+}
+
+// --- Hata Ayıklama Görselleştirmeleri (Sadece Geliştirme Ortamında Görülecek) ---
+
+// Hata ayıklama amacıyla 2D bir nokta çizer.
+// x, y: Noktanın koordinatları.
+// colorR, colorG, colorB: Noktanın rengi (0.0-1.0 arası).
+// duration: Noktanın ne kadar süre ekranda kalacağı (saniye cinsinden).
+fun drawDebugPoint2D(x, y, colorR, colorG, colorB, duration) {
+    // Yerel çağrı: native_debug.drawDebugPoint2D(x, y, colorR, colorG, colorB, duration);
+    return none;
+}
+
+// Hata ayıklama amacıyla 2D bir çizgi çizer.
+// x1, y1, x2, y2: Çizginin başlangıç ve bitiş noktaları.
+// colorR, colorG, colorB: Çizginin rengi.
+// duration: Çizginin ne kadar süre ekranda kalacağı.
+fun drawDebugLine2D(x1, y1, x2, y2, colorR, colorG, colorB, duration) {
+    // Yerel çağrı: native_debug.drawDebugLine2D(x1, y1, x2, y2, colorR, colorG, colorB, duration);
+    return none;
+}
+
+// Hata ayıklama amacıyla 3D bir çizgi çizer.
+fun drawDebugLine3D(x1, y1, z1, x2, y2, z2, colorR, colorG, colorB, duration) {
+    // Yerel çağrı: native_debug.drawDebugLine3D(x1, y1, z1, x2, y2, z2, colorR, colorG, colorB, duration);
+    return none;
+}
+
+// Hata ayıklama amacıyla 3D bir kutu çizer.
+// x, y, z: Kutu merkezi.
+// sizeX, sizeY, sizeZ: Kutu boyutları.
+// colorR, colorG, colorB: Kutu rengi.
+// duration: Kutunun ne kadar süre ekranda kalacağı.
+fun drawDebugBox3D(x, y, z, sizeX, sizeY, sizeZ, colorR, colorG, colorB, duration) {
+    // Yerel çağrı: native_debug.drawDebugBox3D(x, y, z, sizeX, sizeY, sizeZ, colorR, colorG, colorB, duration);
+    return none;
+}

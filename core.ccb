@@ -1,0 +1,131 @@
+fun abs(num) {
+    if (num < 0) {
+        return -num;
+    }
+    return num;
+}
+
+// Minimum değeri döndürür.
+fun min(a, b) {
+    if (a < b) {
+        return a;
+    }
+    return b;
+}
+
+// Maksimum değeri döndürür.
+fun max(a, b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
+// Bir sayının kuvvetini hesaplar (tam sayı kuvvetler için basit implementasyon).
+// Daha karmaşık Power fonksiyonu için C++ yerleşik fonksiyonuna bağlanmak daha iyi olacaktır.
+fun pow(base, exp) {
+    if (exp == 0) return 1;
+    if (exp < 0) {
+        // Negatif üsler için basit bir hata veya float dönüşümü.
+        // Daha gelişmiş bir implementasyon için math_utils'a veya yerel koda bakılmalı.
+        print("Hata: Negatif üsler henüz tam desteklenmiyor.");
+        return none;
+    }
+    var result = 1;
+    for (var i = 0; i < exp; i = i + 1) {
+        result = result * base;
+    }
+    return result;
+}
+
+// --- Zaman Fonksiyonları ---
+// Genellikle yorumlayıcının yerleşik bir özelliği olarak sağlanır.
+
+// Geçen süreyi milisaniye veya saniye cinsinden döndürür.
+// 'clock' yerleşik fonksiyonu olarak varsayılır.
+ fun getTime() {
+     return clock(); // Yerleşik 'clock' fonksiyonunu çağırır.
+ }
+
+// Belirtilen milisaniye kadar bekler/uyur.
+// Bu fonksiyonun yerel (native) kodda implemente edilmesi gereklidir.
+ fun sleep(milliseconds) {
+//     // Yerel çağrıya paslanır.
+      native_bindings.sleep(milliseconds);
+ }
+
+
+// --- Temel Konsol Girdi/Çıktı ---
+// 'print' zaten yerleşik. Yeni bir 'input' fonksiyonu ekleyebiliriz.
+
+// Kullanıcıdan konsol girişi alır.
+// Bu fonksiyonun yerel (native) kodda implemente edilmesi gereklidir.
+ fun readLine(prompt) {
+     print(prompt);
+//     // Yerel çağrıya paslanır, örneğin native_bindings.readLine();
+//     // ve döndürülen değeri C-CUBE string'ine dönüştürür.
+     return none; // Şimdilik yer tutucu
+ }
+
+// --- Tip Kontrol Fonksiyonları ---
+
+// Değerin bir sayı olup olmadığını kontrol eder.
+fun isNumber(value) {
+    return typeof(value) == "number";
+}
+
+// Değerin bir string olup olmadığını kontrol eder.
+fun isString(value) {
+    return typeof(value) == "string";
+}
+
+// Değerin bir boolean olup olmadığını kontrol eder.
+fun isBoolean(value) {
+    return typeof(value) == "boolean";
+}
+
+// Değerin 'none' olup olmadığını kontrol eder.
+fun isNone(value) {
+    return value == none;
+}
+
+// Değerin bir liste olup olmadığını kontrol eder.
+fun isList(value) {
+    return typeof(value) == "list";
+}
+
+// Değerin bir fonksiyon olup olmadığını kontrol eder.
+fun isFunction(value) {
+    return typeof(value) == "function";
+}
+
+// Değerin bir sınıf objesi olup olmadığını kontrol eder.
+fun isClass(value) {
+    return typeof(value) == "class";
+}
+
+// Değerin bir sınıf örneği (instance) olup olmadığını kontrol eder.
+fun isInstance(value) {
+    return typeof(value) == "instance";
+}
+
+// Bir değerin tipini string olarak döndürür.
+// Bu fonksiyon genellikle Interpreter tarafından sağlanır (örneğin 'typeof' operatörü/fonksiyonu).
+ fun getType(value) {
+//     return typeof(value); // Yerleşik 'typeof' operatörü/fonksiyonunu çağırır.
+ }
+
+// --- Genel Yardımcı Fonksiyonlar ---
+
+// Bir C-CUBE programından temiz bir şekilde çıkış yapar.
+// Bu fonksiyonun yerel (native) kodda implemente edilmesi gereklidir.
+ fun exit(code) {
+//     // Yerel çağrıya paslanır, örneğin native_bindings.exit(code);
+ }
+
+// Belirtilen mesajı bir hata olarak konsola yazdırır ve programı sonlandırır.
+// Bu da yerel bir çağrıya paslanabilir veya errorReporter üzerinden çalışabilir.
+ fun fail(message) {
+     print("Fatal Error: " + message);
+     exit(1);
+ }

@@ -1,0 +1,164 @@
+fun createScene(sceneName) {
+    // Yerel çağrı: native_scene.createScene(sceneName);
+    print("Yeni sahne oluşturuldu ve aktif: " + sceneName);
+    return none;
+}
+
+// Aktif sahneyi temizler ve tüm oyun nesnelerini kaldırır.
+fun clearScene() {
+    // Yerel çağrı: native_scene.clearScene();
+    print("Aktif sahne temizlendi.");
+    return none;
+}
+
+// Sahnenin tüm oyun nesnelerini ve bileşenlerini günceller.
+// deltaTime: Son kareden bu yana geçen zaman (saniye).
+// Bu fonksiyon oyun döngüsünün her karesinde çağrılmalıdır.
+fun updateScene(deltaTime) {
+    // Yerel çağrı: native_scene.updateScene(deltaTime);
+    return none;
+}
+
+// Sahnedeki tüm oyun nesnelerini render etmek için gerekli komutları verir.
+// Bu fonksiyon oyun döngüsünün her karesinde draw çağrısı sırasında çağrılmalıdır.
+fun renderScene() {
+    // Yerel çağrı: native_scene.renderScene();
+    return none;
+}
+
+// --- Oyun Nesnesi (Entity) Yönetimi ---
+
+// Yeni bir oyun nesnesi (entity) oluşturur ve bir ID döndürür.
+// parentId: Bu nesnenin üst nesnesi (hiyerarşi için, isteğe bağlı, varsayılan 'none').
+// name: Nesnenin adı (isteğe bağlı, hata ayıklama için kullanışlı).
+fun createEntity(parentId, name) {
+    // Yerel çağrı: native_scene.createEntity(parentId, name);
+    return 0; // Yer tutucu ID (0 hata veya none)
+}
+
+// Bir oyun nesnesini sahneden kaldırır ve yok eder.
+fun destroyEntity(entityId) {
+    // Yerel çağrı: native_scene.destroyEntity(entityId);
+    print("Oyun nesnesi yok edildi: " + entityId);
+    return none;
+}
+
+// Belirli bir isme sahip bir oyun nesnesini bulur ve ID'sini döndürür.
+// Birden fazla eşleşme varsa ilkini döndürür. Bulamazsa 'none' döner.
+fun findEntityByName(name) {
+    // Yerel çağrı: native_scene.findEntityByName(name);
+    return none; // Yer tutucu ID veya none
+}
+
+// Belirli bir ID'ye sahip oyun nesnesinin adını döndürür.
+fun getEntityName(entityId) {
+    // Yerel çağrı: native_scene.getEntityName(entityId);
+    return ""; // Yer tutucu
+}
+
+// --- Dönüşüm (Transform) Bileşeni ---
+// Çoğu oyun nesnesinde temel konum, dönüş ve ölçek bilgileri bulunur.
+
+// Bir oyun nesnesinin 3D konumunu ayarlar.
+fun setPosition(entityId, x, y, z) {
+    // Yerel çağrı: native_scene.setPosition(entityId, x, y, z);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D konumunu döndürür (bir map veya custom Vector3 objesi).
+// return {"x": x, "y": y, "z": z};
+fun getPosition(entityId) {
+    // Yerel çağrı: native_scene.getPosition(entityId);
+    return {"x": 0.0, "y": 0.0, "z": 0.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesinin 3D dönmesini ayarlar (Euler açıları veya Quaternion).
+fun setRotation(entityId, pitch, yaw, roll) { // Pitch (X), Yaw (Y), Roll (Z)
+    // Yerel çağrı: native_scene.setRotation(entityId, pitch, yaw, roll);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D dönmesini döndürür (Euler açıları).
+fun getRotation(entityId) {
+    // Yerel çağrı: native_scene.getRotation(entityId);
+    return {"pitch": 0.0, "yaw": 0.0, "roll": 0.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesinin 3D ölçeğini ayarlar.
+fun setScale(entityId, x, y, z) {
+    // Yerel çağrı: native_scene.setScale(entityId, x, y, z);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D ölçeğini döndürür.
+fun getScale(entityId) {
+    // Yerel çağrı: native_scene.getScale(entityId);
+    return {"x": 1.0, "y": 1.0, "z": 1.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesini belirli bir miktarda hareket ettirir (yerel uzayda).
+fun translate(entityId, dx, dy, dz) {
+    // Yerel çağrı: native_scene.translate(entityId, dx, dy, dz);
+    return none;
+}
+
+// Bir oyun nesnesini belirli bir açı kadar döndürür (yerel uzayda).
+fun rotate(entityId, dpitch, dyaw, droll) {
+    // Yerel çağrı: native_scene.rotate(entityId, dpitch, dyaw, droll);
+    return none;
+}
+
+// --- Bileşen (Component) Yönetimi ---
+// Oyun nesneleri, farklı işlevsellikler için bileşenler içerir (örn: RendererComponent, PhysicsComponent).
+
+// Bir oyun nesnesine yeni bir bileşen ekler.
+// componentType: Eklenecek bileşenin türü (örn: "Renderer", "Physics", "Script").
+// config: Bileşenin başlatma ayarları (bir map objesi, isteğe bağlı).
+fun addComponent(entityId, componentType, config) {
+    // Yerel çağrı: native_scene.addComponent(entityId, componentType, config);
+    return none;
+}
+
+// Bir oyun nesnesinden belirli bir türdeki bileşeni kaldırır.
+fun removeComponent(entityId, componentType) {
+    // Yerel çağrı: native_scene.removeComponent(entityId, componentType);
+    return none;
+}
+
+// Bir oyun nesnesinde belirli bir türde bileşenin olup olmadığını kontrol eder.
+fun hasComponent(entityId, componentType) {
+    // Yerel çağrı: native_scene.hasComponent(entityId, componentType);
+    return false; // Yer tutucu
+}
+
+// Belirli bir bileşenin etkinliğini ayarlar.
+fun setComponentEnabled(entityId, componentType, enabled) {
+    // Yerel çağrı: native_scene.setComponentEnabled(entityId, componentType, enabled);
+    return none;
+}
+
+// Belirli bir bileşenin etkin olup olmadığını döndürür.
+fun isComponentEnabled(entityId, componentType) {
+    // Yerel çağrı: native_scene.isComponentEnabled(entityId, componentType);
+    return false; // Yer tutucu
+}
+
+// --- Işıklar ve Kameralar (Basit) ---
+
+// Sahneye bir kamera ekler.
+// entityId: Kameranın bağlı olacağı nesnenin ID'si.
+// isMainCamera: Bu kameranın ana render kamerası olup olmayacağı.
+fun addCamera(entityId, isMainCamera) {
+    // Yerel çağrı: native_scene.addCamera(entityId, isMainCamera);
+    return none;
+}
+
+// Sahneye bir ışık ekler.
+// entityId: Işığın bağlı olacağı nesnenin ID'si.
+// lightType: Işık tipi ("POINT", "DIRECTIONAL", "SPOT").
+// colorR, colorG, colorB: Işık rengi.
+// intensity: Işık şiddeti.
+fun addLight(entityId, lightType, colorR, colorG, colorB, intensity) {
+    // Yerel çağrı: native_scene.addLight(entityId, lightType, colorR, colorG, colorB, intensity);
+    return none;
+}

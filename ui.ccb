@@ -1,0 +1,131 @@
+fun initUI() {
+    // Yerel çağrı: native_ui.init();
+    print("UI sistemi başlatıldı.");
+    return none;
+}
+
+// UI durumunu günceller ve olayları işler. Oyun döngüsünün her karesinde çağrılmalıdır.
+// Bu fonksiyon, fare/dokunma etkileşimlerini, tuş basımlarını UI elemanlarına yönlendirir.
+fun updateUI(deltaTime) {
+    // Yerel çağrı: native_ui.update(deltaTime);
+    return none;
+}
+
+// UI'yi ekrana çizer. Her karede, updateUI sonrası çağrılmalıdır.
+fun drawUI() {
+    // Yerel çağrı: native_ui.draw();
+    return none;
+}
+
+// UI kaynaklarını serbest bırakır ve UI sistemini kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownUI() {
+    // Yerel çağrı: native_ui.shutdown();
+    print("UI sistemi kapatıldı.");
+    return none;
+}
+
+// --- Temel UI Elemanları Oluşturma ve Yönetme ---
+
+// Bir düğme (button) oluşturur.
+// x, y: Konum
+// width, height: Boyutlar
+// text: Düğme üzerindeki metin
+// callbackFunction: Düğmeye tıklandığında çağrılacak C-CUBE fonksiyonu.
+// Bu fonksiyon C++ tarafında bir UI elemanı oluşturur ve bir ID döndürür.
+fun createButton(x, y, width, height, text, callbackFunction) {
+    // Yerel çağrı: native_ui.createButton(x, y, width, height, text, callbackFunction);
+    return 0; // Yer tutucu ID
+}
+
+// Bir metin etiketi (label) oluşturur.
+// x, y: Konum
+// text: Gösterilecek metin
+// fontSize: Metin boyutu
+// r, g, b, a: Metin rengi
+fun createLabel(x, y, text, fontSize, r, g, b, a) {
+    // Yerel çağrı: native_ui.createLabel(x, y, text, fontSize, r, g, b, a);
+    return 0; // Yer tutucu ID
+}
+
+// Bir resim kutusu (image box) oluşturur.
+// x, y: Konum
+// width, height: Boyutlar
+// textureId: graphics.ccb'den yüklenmiş doku kimliği
+fun createImage(x, y, width, height, textureId) {
+    // Yerel çağrı: native_ui.createImage(x, y, width, height, textureId);
+    return 0; // Yer tutucu ID
+}
+
+// Bir kaydırıcı (slider) oluşturur.
+// x, y: Konum
+// width, height: Boyutlar
+// minValue, maxValue: Kaydırıcının minimum ve maksimum değeri
+// currentValue: Başlangıç değeri
+// callbackFunction: Değer değiştiğinde çağrılacak C-CUBE fonksiyonu (yeni_değer parametresiyle).
+fun createSlider(x, y, width, height, minValue, maxValue, currentValue, callbackFunction) {
+    // Yerel çağrı: native_ui.createSlider(x, y, width, height, minValue, maxValue, currentValue, callbackFunction);
+    return 0; // Yer tutucu ID
+}
+
+// Bir metin giriş alanı (text input) oluşturur.
+// x, y: Konum
+// width, height: Boyutlar
+// placeholderText: Boşken gösterilecek metin
+// callbackFunction: Enter'a basıldığında veya değer değiştiğinde çağrılacak C-CUBE fonksiyonu (text_value parametresiyle).
+fun createTextInput(x, y, width, height, placeholderText, callbackFunction) {
+    // Yerel çağrı: native_ui.createTextInput(x, y, width, height, placeholderText, callbackFunction);
+    return 0; // Yer tutucu ID
+}
+
+// Bir UI elemanını kaldırır.
+fun removeUIElement(elementId) {
+    // Yerel çağrı: native_ui.removeUIElement(elementId);
+    return none;
+}
+
+// --- UI Elemanı Özelliklerini Ayarlama ---
+
+// Bir UI elemanının konumunu ayarlar.
+fun setElementPosition(elementId, x, y) {
+    // Yerel çağrı: native_ui.setElementPosition(elementId, x, y);
+    return none;
+}
+
+// Bir UI elemanının boyutunu ayarlar.
+fun setElementSize(elementId, width, height) {
+    // Yerel çağrı: native_ui.setElementSize(elementId, width, height);
+    return none;
+}
+
+// Bir UI elemanının görünürlüğünü ayarlar.
+fun setElementVisible(elementId, isVisible) {
+    // Yerel çağrı: native_ui.setElementVisible(elementId, isVisible);
+    return none;
+}
+
+// Bir düğme veya etiketin metnini günceller.
+fun setElementText(elementId, newText) {
+    // Yerel çağrı: native_ui.setElementText(elementId, newText);
+    return none;
+}
+
+// Bir kaydırıcının değerini ayarlar.
+fun setSliderValue(elementId, value) {
+    // Yerel çağrı: native_ui.setSliderValue(elementId, value);
+    return none;
+}
+
+// Bir metin giriş alanının içeriğini ayarlar.
+fun setTextInputValue(elementId, value) {
+    // Yerel çağrı: native_ui.setTextInputValue(elementId, value);
+    return none;
+}
+
+// --- Genel UI Fonksiyonları ---
+
+// Mouse'un bir UI elemanının üzerinde olup olmadığını kontrol eder.
+fun isMouseOverElement(elementId) {
+    // Yerel çağrı: native_ui.isMouseOverElement(elementId);
+    return false; // Yer tutucu
+}

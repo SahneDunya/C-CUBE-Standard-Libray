@@ -1,0 +1,50 @@
+fun seed(seedValue) {
+    // Yerel çağrı: native_random.seed(seedValue);
+    if (seedValue == none) {
+        print("Rastgelelik sistemi sistem saati ile başlatıldı.");
+    } else {
+        print("Rastgelelik sistemi " + seedValue + " ile başlatıldı.");
+    }
+    return none;
+}
+
+// 0.0 (dahil) ile 1.0 (hariç) arasında bir kayan noktalı sayı (float) döndürür.
+fun randomFloat() {
+    // Yerel çağrı: native_random.randomFloat();
+    return 0.0; // Yer tutucu
+}
+
+// Belirtilen minimum (dahil) ve maksimum (hariç) değerler arasında bir kayan noktalı sayı döndürür.
+fun randomRangeFloat(min, max) {
+    // Yerel çağrı: native_random.randomRangeFloat(min, max);
+    return 0.0; // Yer tutucu
+}
+
+// Belirtilen minimum (dahil) ve maksimum (dahil) değerler arasında bir tam sayı (integer) döndürür.
+fun randomRangeInt(min, max) {
+    // Yerel çağrı: native_random.randomRangeInt(min, max);
+    return 0; // Yer tutucu
+}
+
+// Belirtilen olasılık ile true veya false döndürür.
+// probability: true dönme olasılığı (0.0 ile 1.0 arası). Örn: 0.75 %75 şansla true döner.
+fun randomBool(probability) {
+    // Yerel çağrı: native_random.randomBool(probability);
+    return false; // Yer tutucu
+}
+
+// --- Liste İşlemleri İçin Rastgelelik ---
+
+// Bir listenin elemanlarını rastgele karıştırır (shuffle).
+// list: Karıştırılacak liste. Liste doğrudan değiştirilir.
+fun shuffle(list) {
+    // Yerel çağrı: native_random.shuffle(list);
+    return none;
+}
+
+// Bir listeden rastgele bir eleman seçer ve döndürür.
+// Eğer liste boşsa 'none' döner.
+fun choose(list) {
+    // Yerel çağrı: native_random.choose(list);
+    return none; // Yer tutucu
+}

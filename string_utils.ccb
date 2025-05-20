@@ -1,0 +1,133 @@
+fun length(str) {
+    // Yerel çağrı: native_string.length(str);
+    return 0; // Yer tutucu
+}
+
+// İki string'i birleştirir.
+fun concat(str1, str2) {
+    // Yerel çağrı: native_string.concat(str1, str2);
+    return ""; // Yer tutucu
+}
+
+// Bir string'in belirli bir kısmını (alt string) döndürür.
+// startIndex: Başlangıç indeksi (dahil).
+// count: Alınacak karakter sayısı.
+fun substring(str, startIndex, count) {
+    // Yerel çağrı: native_string.substring(str, startIndex, count);
+    return ""; // Yer tutucu
+}
+
+// Bir string'i büyük harflere dönüştürür.
+fun toUpper(str) {
+    // Yerel çağrı: native_string.toUpper(str);
+    return ""; // Yer tutucu
+}
+
+// Bir string'i küçük harflere dönüştürür.
+fun toLower(str) {
+    // Yerel çağrı: native_string.toLower(str);
+    return ""; // Yer tutucu
+}
+
+// Bir string'deki baştaki ve sondaki boşlukları (veya belirtilen karakterleri) kaldırır.
+// charsToTrim: Kaldırılacak karakterler (isteğe bağlı, varsayılan boşluk).
+fun trim(str, charsToTrim) {
+    // Yerel çağrı: native_string.trim(str, charsToTrim);
+    return ""; // Yer tutucu
+}
+
+// --- Arama ve Değiştirme ---
+
+// Bir string'in başka bir string'i içerip içermediğini kontrol eder.
+fun contains(haystack, needle) {
+    // Yerel çağrı: native_string.contains(haystack, needle);
+    return false; // Yer tutucu
+}
+
+// Bir string'de belirli bir alt string'in ilk geçtiği indeksi döndürür. Bulamazsa -1 döner.
+fun indexOf(haystack, needle) {
+    // Yerel çağrı: native_string.indexOf(haystack, needle);
+    return -1; // Yer tutucu
+}
+
+// Bir string'de belirli bir alt string'in son geçtiği indeksi döndürür. Bulamazsa -1 döner.
+fun lastIndexOf(haystack, needle) {
+    // Yerel çağrı: native_string.lastIndexOf(haystack, needle);
+    return -1; // Yer tutucu
+}
+
+// Bir string'deki tüm alt string eşleşmelerini başka bir string ile değiştirir.
+fun replaceAll(str, search, replacement) {
+    // Yerel çağrı: native_string.replaceAll(str, search, replacement);
+    return ""; // Yer tutucu
+}
+
+// --- Bölme ve Birleştirme (Split/Join) ---
+
+// Bir string'i belirli bir ayırıcıya (delimiter) göre bir listeye böler.
+fun split(str, delimiter) {
+    // Yerel çağrı: native_string.split(str, delimiter);
+    return []; // Yer tutucu (string listesi döner)
+}
+
+// Bir listeye (string listesi olması beklenir) ait elemanları belirli bir ayırıcı ile birleştirir.
+fun join(list, delimiter) {
+    // Yerel çağrı: native_string.join(list, delimiter);
+    return ""; // Yer tutucu
+}
+
+// --- Dönüşüm Fonksiyonları ---
+
+// Bir string'i sayıya (integer veya float) dönüştürür. Dönüşüm başarısız olursa 'none' döner.
+fun toNum(str) {
+    // Yerel çağrı: native_string.toNum(str);
+    return none; // Yer tutucu (sayı veya none döner)
+}
+
+// Bir sayıyı string'e dönüştürür.
+fun fromNum(num) {
+    // Yerel çağrı: native_string.fromNum(num);
+    return ""; // Yer tutucu
+}
+
+// Bir boolean değeri string'e dönüştürür ("true" veya "false").
+fun fromBool(boolValue) {
+    if (boolValue) {
+        return "true";
+    }
+    return "false";
+}
+
+// --- Karşılaştırma Fonksiyonları ---
+
+// İki string'in aynı olup olmadığını kontrol eder (büyük/küçük harf duyarlı).
+fun equals(str1, str2) {
+    return str1 == str2; // C-CUBE'un varsayılan eşitlik operatörü yeterli olabilir.
+}
+
+// İki string'in aynı olup olmadığını kontrol eder (büyük/küçük harf duyarsız).
+fun equalsIgnoreCase(str1, str2) {
+    // Yerel çağrı: native_string.equalsIgnoreCase(str1, str2);
+    return false; // Yer tutucu
+}
+
+// Bir string'in belirli bir alt string ile başlayıp başlamadığını kontrol eder.
+fun startsWith(str, prefix) {
+    // Yerel çağrı: native_string.startsWith(str, prefix);
+    return false; // Yer tutucu
+}
+
+// Bir string'in belirli bir alt string ile bitip bitmediğini kontrol eder.
+fun endsWith(str, suffix) {
+    // Yerel çağrı: native_string.endsWith(str, suffix);
+    return false; // Yer tutucu
+}
+
+// --- Karakter İşlemleri ---
+
+// Bir string'deki belirli bir indeksteki karakteri döndürür.
+// 'char' tipi olmadığı varsayıldığı için, tek karakterli bir string döner.
+fun charAt(str, index) {
+    // Yerel çağrı: native_string.charAt(str, index);
+    return ""; // Yer tutucu (tek karakterli string)
+}

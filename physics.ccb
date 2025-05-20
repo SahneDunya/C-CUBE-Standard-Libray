@@ -1,0 +1,193 @@
+fun initPhysics(gravityX, gravityY, gravityZ) {
+    // Yerel çağrı: native_physics.init(gravityX, gravityY, gravityZ);
+    print("Fizik sistemi başlatıldı. Yerçekimi: (" + gravityX + ", " + gravityY + ", " + gravityZ + ")");
+    return none;
+}
+
+// Fizik simülasyonunu günceller. Oyun döngüsünün her karesinde çağrılmalıdır.
+// deltaTime: Son güncellemeden bu yana geçen süre (saniye cinsinden).
+// Bu fonksiyon C++ tarafında adım adım fizik simülasyonunu ilerletir (örneğin, fixed time step).
+fun updatePhysics(deltaTime) {
+    // Yerel çağrı: native_physics.update(deltaTime);
+    return none;
+}
+
+// Fizik kaynaklarını serbest bırakır ve fizik sistemini kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownPhysics() {
+    // Yerel çağrı: native_physics.shutdown();
+    print("Fizik sistemi kapatıldı.");
+    return none;
+}
+
+// --- Fizik Nesneleri (Rigid Body) Oluşturma ve Yönetme ---
+
+// Bir dinamik fizik nesnesi (Rigid Body) oluşturur.
+// x, y, z: Başlangıç konumu
+// type: Şekil türü ("BOX", "SPHERE", "CAPSULE", "PLANE", "MESH")
+// halfExtentsX, halfExtentsY, halfExtentsZ: Kutu için yarı boyutlar, küre için radius, kapsül için radius ve yükseklik
+// mass: Kütle. 0 ise statik (hareketsiz) olur.
+// restitution: Esneklik (0.0 - 1.0)
+// friction: Sürtünme
+// Bu fonksiyon C++ tarafında bir fizik objesi oluşturur ve bir ID döndürür.
+fun createBody(x, y, z, type, halfExtentsX, halfExtentsY, halfExtentsZ, mass, restitution, friction) {
+    // Yerel çağrı: native_physics.createBody(x, y, z, type, halfExtentsX, halfExtentsY, halfExtentsZ, mass, restitution, friction);
+    return 0; // Yer tutucu ID
+}
+
+// Bir fizik nesnesini simülasyondan kaldırır ve kaynaklarını serbest bırakır.
+fun removeBody(bodyId) {
+    // Yerel çağrı: native_physics.removeBody(bodyId);
+    return none;
+}
+
+// --- Fizik Nesnesi Pozisyon ve Dönme Ayarları ---
+
+// Bir fizik nesnesinin pozisyonunu ayarlar.
+fun setBodyPosition(bodyId, x, y, z) {
+    // Yerel çağrı: native_physics.setBodyPosition(bodyId, x, y, z);
+    return none;
+}
+
+// Bir fizik nesnesinin pozisyonunu döndürür.
+// Dönen değer bir liste olabilir: [x, y, z]
+fun getBodyPosition(bodyId) {
+    // Yerel çağrı: native_physics.getBodyPosition(bodyId);
+    return [0.0, 0.0, 0.0]; // Yer tutucu
+}
+
+// Bir fizik nesnesinin dönmesini Euler açıları (derece) olarak ayarlar.
+fun setBodyRotation(bodyId, pitch, yaw, roll) {
+    // Yerel çağrı: native_physics.setBodyRotation(bodyId, pitch, yaw, roll);
+    return none;
+}
+
+// Bir fizik nesnesinin dönmesini Euler açıları (derece) olarak döndürür.
+// Dönen değer bir liste olabilir: [pitch, yaw, roll]
+fun getBodyRotation(bodyId) {
+    // Yerel çağrı: native_physics.getBodyRotation(bodyId);
+    return [0.0, 0.0, 0.0]; // Yer tutucu
+}
+
+// --- Fizik Nesnesine Kuvvet Uygulama ---
+
+// Bir fizik nesnesine anlık bir itme kuvveti uygular.
+fun applyImpulse(bodyId, forceX, forceY, forceZ) {
+    // Yerel çağrı: native_physics.applyImpulse(bodyId, forceX, forceY, forceZ);
+    return none;
+}
+
+// Bir fizik nesnesine sürekli bir kuvvet uygular.
+fun applyForce(bodyId, forceX, forceY, forceZ) {
+    // Yerel çağrı: native_physics.applyForce(bodyId, forceX, forceY, forceZ);
+    return none;
+}
+
+// Bir fizik nesnesine tork uygular (dönme kuvveti).
+fun applyTorque(bodyId, torqueX, torqueY, torqueZ) {
+    // Yerel çağrı: native_physics.applyTorque(bodyId, torqueX, torqueY, torqueZ);
+    return none;
+}
+
+// Bir fizik nesnesinin doğrusal hızını ayarlar.
+fun setBodyVelocity(bodyId, velX, velY, velZ) {
+    // Yerel çağrı: native_physics.setBodyVelocity(bodyId, velX, velY, velZ);
+    return none;
+}
+
+// Bir fizik nesnesinin doğrusal hızını döndürür.
+fun getBodyVelocity(bodyId) {
+    // Yerel çağrı: native_physics.getBodyVelocity(bodyId);
+    return [0.0, 0.0, 0.0]; // Yer tutucu
+}
+
+// Bir fizik nesnesinin açısal hızını (dönme hızı) ayarlar.
+fun setBodyAngularVelocity(bodyId, angVelX, angVelY, angVelZ) {
+    // Yerel çağrı: native_physics.setBodyAngularVelocity(bodyId, angVelX, angVelY, angVelZ);
+    return none;
+}
+
+// Bir fizik nesnesinin açısal hızını döndürür.
+fun getBodyAngularVelocity(bodyId) {
+    // Yerel çağrı: native_physics.getBodyAngularVelocity(bodyId);
+    return [0.0, 0.0, 0.0]; // Yer tutucu
+}
+
+// --- Çarpışma Tespiti ve Olayları ---
+
+// Çarpışma dinleyicisini kaydeder.
+// callbackFunction: Çarpışma olduğunda çağrılacak C-CUBE fonksiyonu.
+// Bu fonksiyonun, çarpışan objelerin ID'lerini veya bilgilerini (örn: [bodyA_id, bodyB_id])
+// parametre olarak alması beklenir.
+fun registerCollisionCallback(callbackFunction) {
+    // Yerel çağrı: native_physics.registerCollisionCallback(callbackFunction);
+    // C++ tarafında, bu callback fonksiyonu bir C-CUBE fonksiyon objesi olarak saklanır ve
+    // fizik motoru bir çarpışma tespit ettiğinde Interpreter aracılığıyla çağrılır.
+    print("Çarpışma geri çağrısı kaydedildi.");
+    return none;
+}
+
+// --- Raycasting (Işın Atma) ---
+// Görünürlük, nişan alma vb. için kullanılır.
+
+// Bir noktadan belirli bir yöne ışın atar ve çarptığı ilk objenin bilgilerini döndürür.
+// originX, originY, originZ: Işının başlangıç noktası
+// dirX, dirY, dirZ: Işının yön vektörü
+// maxDistance: Maksimum ışın mesafesi
+// Dönen değer: [hit_body_id, hit_x, hit_y, hit_z, hit_normal_x, hit_normal_y, hit_normal_z] veya none
+fun raycast(originX, originY, originZ, dirX, dirY, dirZ, maxDistance) {
+    // Yerel çağrı: native_physics.raycast(originX, originY, originZ, dirX, dirY, dirZ, maxDistance);
+    return none; // Yer tutucu
+}
+
+// --- 2D Destek Fonksiyonları (Kolaylık İçin) ---
+// 2D oyunlar için, 3D fonksiyonların bazılarını 2D'ye basitleştirebiliriz.
+
+// 2D için bir dinamik fizik nesnesi oluşturur (Z ekseni 0 varsayılır).
+fun createBody2D(x, y, type, halfExtentsX, halfExtentsY, mass, restitution, friction) {
+    return createBody(x, y, 0.0, type, halfExtentsX, halfExtentsY, 0.0, mass, restitution, friction);
+}
+
+// 2D için bir fizik nesnesinin pozisyonunu ayarlar (Z ekseni 0 varsayılır).
+fun setBodyPosition2D(bodyId, x, y) {
+    var currentPos = getBodyPosition(bodyId);
+    return setBodyPosition(bodyId, x, y, currentPos[2]); // Z'yi koru
+}
+
+// 2D için bir fizik nesnesinin pozisyonunu döndürür (sadece X, Y).
+fun getBodyPosition2D(bodyId) {
+    var pos = getBodyPosition(bodyId);
+    return [pos[0], pos[1]];
+}
+
+// 2D için bir fizik nesnesine kuvvet uygular (Z ekseni 0 varsayılır).
+fun applyForce2D(bodyId, forceX, forceY) {
+    return applyForce(bodyId, forceX, forceY, 0.0);
+}
+
+// 2D için bir fizik nesnesine anlık itme kuvveti uygular (Z ekseni 0 varsayılır).
+fun applyImpulse2D(bodyId, impulseX, impulseY) {
+    return applyImpulse(bodyId, impulseX, impulseY, 0.0);
+}
+
+// 2D için bir fizik nesnesinin doğrusal hızını ayarlar (Z ekseni 0 varsayılır).
+fun setBodyVelocity2D(bodyId, velX, velY) {
+    return setBodyVelocity(bodyId, velX, velY, 0.0);
+}
+
+// 2D için bir fizik nesnesinin doğrusal hızını döndürür (sadece X, Y).
+fun getBodyVelocity2D(bodyId) {
+    var vel = getBodyVelocity(bodyId);
+    return [vel[0], vel[1]];
+}
+
+// 2D için bir fizik nesnesinin dönüşünü ayarlar (sadece Y ekseninde dönme varsayılır - Yaw).
+fun setBodyRotation2D(bodyId, angle) {
+    return setBodyRotation(bodyId, 0.0, angle, 0.0); // Pitch ve Roll 0
+}
+
+// 2D için bir fizik nesnesinin dönüşünü döndürür (sadece Y eksenindeki dönme - Yaw).
+fun getBodyRotation2D(bodyId) {
+    var rot = getBodyRotation(bodyId);
+    return rot[1]; // Sadece Yaw (Y eksenindeki dönme)
+}

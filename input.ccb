@@ -1,0 +1,149 @@
+fun initInput() {
+    // Yerel çağrı: native_input.init();
+    print("Girdi sistemi başlatıldı.");
+    return none;
+}
+
+// Girdi durumunu günceller. Oyun döngüsünün her iterasyonunda çağrılmalıdır.
+// Bu fonksiyon, yeni girdi olaylarını işler, tuş/fare/dokunma durumlarını günceller.
+fun updateInput() {
+    // Yerel çağrı: native_input.update();
+    return none;
+}
+
+// Girdi kaynaklarını serbest bırakır ve girdi sistemini kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownInput() {
+    // Yerel çağrı: native_input.shutdown();
+    print("Girdi sistemi kapatıldı.");
+    return none;
+}
+
+// --- Klavye Girdisi ---
+
+// Bir tuşa basılıp basılmadığını kontrol eder.
+// key: Tuş kodu (örneğin "KEY_W", "KEY_SPACE", "KEY_ESCAPE").
+// Bu tuş kodları C++ tarafından tanımlanmış sabitler olmalıdır.
+fun isKeyDown(key) {
+    // Yerel çağrı: native_input.isKeyDown(key);
+    return false; // Yer tutucu
+}
+
+// Bir tuşun ilk kez basıldığını kontrol eder (yani, önceki karede basılı değilken bu karede basıldı).
+fun isKeyPressed(key) {
+    // Yerel çağrı: native_input.isKeyPressed(key);
+    return false; // Yer tutucu
+}
+
+// Bir tuşun bırakıldığını kontrol eder.
+fun isKeyReleased(key) {
+    // Yerel çağrı: native_input.isKeyReleased(key);
+    return false; // Yer tutucu
+}
+
+// --- Fare Girdisi ---
+
+// Bir fare tuşuna basılıp basılmadığını kontrol eder.
+// button: Fare tuşu kodu (örneğin "MOUSE_LEFT", "MOUSE_RIGHT", "MOUSE_MIDDLE").
+fun isMouseButtonDown(button) {
+    // Yerel çağrı: native_input.isMouseButtonDown(button);
+    return false; // Yer tutucu
+}
+
+// Bir fare tuşunun ilk kez basıldığını kontrol eder.
+fun isMouseButtonPressed(button) {
+    // Yerel çağrı: native_input.isMouseButtonPressed(button);
+    return false; // Yer tutucu
+}
+
+// Bir fare tuşunun bırakıldığını kontrol eder.
+fun isMouseButtonReleased(button) {
+    // Yerel çağrı: native_input.isMouseButtonReleased(button);
+    return false; // Yer tutucu
+}
+
+// Farenin X koordinatını döndürür.
+fun getMouseX() {
+    // Yerel çağrı: native_input.getMouseX();
+    return 0.0; // Yer tutucu
+}
+
+// Farenin Y koordinatını döndürür.
+fun getMouseY() {
+    // Yerel çağrı: native_input.getMouseY();
+    return 0.0; // Yer tutucu
+}
+
+// Farenin önceki kareye göre X eksenindeki değişimini döndürür.
+fun getMouseDeltaX() {
+    // Yerel çağrı: native_input.getMouseDeltaX();
+    return 0.0; // Yer tutucu
+}
+
+// Farenin önceki kareye göre Y eksenindeki değişimini döndürür.
+fun getMouseDeltaY() {
+    // Yerel çağrı: native_input.getMouseDeltaY();
+    return 0.0; // Yer tutucu
+}
+
+// Farenin tekerlek hareketini döndürür (yukarı/aşağı).
+fun getMouseWheelMove() {
+    // Yerel çağrı: native_input.getMouseWheelMove();
+    return 0.0; // Yer tutucu (pozitif/negatif)
+}
+
+// Fare imlecini gizler.
+fun hideMouseCursor() {
+    // Yerel çağrı: native_input.hideMouseCursor();
+    return none;
+}
+
+// Fare imlecini gösterir.
+fun showMouseCursor() {
+    // Yerel çağrı: native_input.showMouseCursor();
+    return none;
+}
+
+// --- Dokunmatik Ekran Girdisi (Mobil Odaklı) ---
+
+// Toplam dokunma noktası sayısını döndürür.
+fun getTouchCount() {
+    // Yerel çağrı: native_input.getTouchCount();
+    return 0; // Yer tutucu
+}
+
+// Belirli bir dokunma noktasının (parmağın) X koordinatını döndürür.
+// index: Dokunma noktasının indeksi (0'dan getTouchCount() - 1'e kadar).
+fun getTouchX(index) {
+    // Yerel çağrı: native_input.getTouchX(index);
+    return 0.0; // Yer tutucu
+}
+
+// Belirli bir dokunma noktasının (parmağın) Y koordinatını döndürür.
+fun getTouchY(index) {
+    // Yerel çağrı: native_input.getTouchY(index);
+    return 0.0; // Yer tutucu
+}
+
+// Belirli bir dokunma noktasının basılıp basılmadığını kontrol eder.
+fun isTouchDown(index) {
+    // Yerel çağrı: native_input.isTouchDown(index);
+    return false; // Yer tutucu
+}
+
+// Belirli bir dokunma noktasının yeni basıldığını kontrol eder.
+fun isTouchPressed(index) {
+    // Yerel çağrı: native_input.isTouchPressed(index);
+    return false; // Yer tutucu
+}
+
+// Belirli bir dokunma noktasının bırakıldığını kontrol eder.
+fun isTouchReleased(index) {
+    // Yerel çağrı: native_input.isTouchReleased(index);
+    return false; // Yer tutucu
+}
+
+// --- Oyun Kumandası/Gamepad Girdisi (İleri Seviye - Opsiyonel) ---
+// Oyun kumandası desteği eklemek istenirse buraya eklenebilir.
+ fun getGamepadButton(gamepadId, button) { ... }
+ fun getGamepadAxis(gamepadId, axis) { ... }

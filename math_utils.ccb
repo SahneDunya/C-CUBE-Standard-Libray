@@ -1,0 +1,156 @@
+fun sin(degrees) {
+    // Yerel çağrı: native_math.sin(degrees);
+    return 0.0; // Yer tutucu
+}
+
+// Kosinüs hesaplar.
+fun cos(degrees) {
+    // Yerel çağrı: native_math.cos(degrees);
+    return 0.0; // Yer tutucu
+}
+
+// Tanjant hesaplar.
+fun tan(degrees) {
+    // Yerel çağrı: native_math.tan(degrees);
+    return 0.0; // Yer tutucu
+}
+
+// Ark sinüs hesaplar (dönen değer derece cinsindendir).
+fun asin(value) {
+    // Yerel çağrı: native_math.asin(value);
+    return 0.0; // Yer tutucu
+}
+
+// Ark kosinüs hesaplar (dönen değer derece cinsindendir).
+fun acos(value) {
+    // Yerel çağrı: native_math.acos(value);
+    return 0.0; // Yer tutucu
+}
+
+// Ark tanjant 2 hesaplar (y/x'in açısı, dönen değer derece cinsindendir).
+// Genellikle yön hesaplamaları için kullanılır.
+fun atan2(y, x) {
+    // Yerel çağrı: native_math.atan2(y, x);
+    return 0.0; // Yer tutucu
+}
+
+// Dereceyi radyana çevirir.
+fun toRadians(degrees) {
+    // Yerel çağrı: native_math.toRadians(degrees);
+    return 0.0; // Yer tutucu
+}
+
+// Radyanı dereceye çevirir.
+fun toDegrees(radians) {
+    // Yerel çağrı: native_math.toDegrees(radians);
+    return 0.0; // Yer tutucu
+}
+
+// --- Üstel ve Logaritmik Fonksiyonlar ---
+
+// Üs alma fonksiyonu (taban^üs).
+fun pow(base, exponent) {
+    // Yerel çağrı: native_math.pow(base, exponent);
+    return 0.0; // Yer tutucu
+}
+
+// Karekök alır.
+fun sqrt(value) {
+    // Yerel çağrı: native_math.sqrt(value);
+    return 0.0; // Yer tutucu
+}
+
+// Doğal logaritma (e tabanlı).
+fun log(value) {
+    // Yerel çağrı: native_math.log(value);
+    return 0.0; // Yer tutucu
+}
+
+// 10 tabanında logaritma.
+fun log10(value) {
+    // Yerel çağrı: native_math.log10(value);
+    return 0.0; // Yer tutucu
+}
+
+// --- Kapsama ve Yuvarlama Fonksiyonları ---
+
+// Sayıyı en yakın tam sayıya yuvarlar.
+fun round(value) {
+    // Yerel çağrı: native_math.round(value);
+    return 0; // Yer tutucu (integer dönmesi beklenir)
+}
+
+// Sayıyı yukarıya, en yakın tam sayıya yuvarlar.
+fun ceil(value) {
+    // Yerel çağrı: native_math.ceil(value);
+    return 0; // Yer tutucu (integer dönmesi beklenir)
+}
+
+// Sayıyı aşağıya, en yakın tam sayıya yuvarlar.
+fun floor(value) {
+    // Yerel çağrı: native_math.floor(value);
+    return 0; // Yer tutucu (integer dönmesi beklenir)
+}
+
+// --- Klipping ve Normalizasyon ---
+
+// Bir değeri belirli bir aralığa sınırlar (minimum ve maksimum arasına).
+fun clamp(value, minVal, maxVal) {
+    if (value < minVal) {
+        return minVal;
+    }
+    if (value > maxVal) {
+        return maxVal;
+    }
+    return value;
+}
+
+// Bir değeri 0 ile 1 arasına normalleştirir.
+// fromMin, fromMax: Orijinal aralık
+// value: Normalleştirilecek değer
+fun normalize(value, fromMin, fromMax) {
+    if (fromMin == fromMax) return 0.0; // Division by zero check
+    return (value - fromMin) / (fromMax - fromMin);
+}
+
+// Bir değeri bir aralıktan diğerine doğrusal olarak eşleştirir (linear interpolation).
+// value: Normalleştirilecek değer (0-1 arasında olması beklenir)
+// toMin, toMax: Yeni aralık
+fun lerp(value, toMin, toMax) {
+    return toMin + (toMax - toMin) * value;
+}
+
+// --- Mesafe ve Vektör İşlemleri (2D ve 3D için Ortak) ---
+
+// İki nokta arasındaki 2D mesafeyi hesaplar.
+fun distance2D(x1, y1, x2, y2) {
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    return sqrt(dx * dx + dy * dy);
+}
+
+// İki nokta arasındaki 3D mesafeyi hesaplar.
+fun distance3D(x1, y1, z1, x2, y2, z2) {
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    var dz = z2 - z1;
+    return sqrt(dx * dx + dy * dy + dz * dz);
+}
+
+// --- Sabitler ---
+// Bu sabitler, genellikle C++ tarafında tanımlanır ve C-CUBE'a aktarılır.
+
+// Yaklaşık Pi değeri.
+// var PI = 3.1415926535; // Yer tutucu
+
+// Yarım Pi.
+// var HALF_PI = 1.5707963267;
+
+// İki Pi.
+// var TWO_PI = 6.283185307;
+
+// Dereceden radyana dönüşüm faktörü (PI / 180).
+// var DEG_TO_RAD = 0.0174532925;
+
+// Radyandan dereceye dönüşüm faktörü (180 / PI).
+// var RAD_TO_DEG = 57.295779513;

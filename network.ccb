@@ -1,0 +1,130 @@
+fun initNetwork() {
+    // Yerel çağrı: native_network.init();
+    print("Ağ sistemi başlatıldı.");
+    return none;
+}
+
+// Ağ durumunu günceller. Oyun döngüsünün her karesinde çağrılmalıdır.
+// Bu fonksiyon, gelen/giden paketleri işler, bağlantı durumlarını günceller.
+fun updateNetwork() {
+    // Yerel çağrı: native_network.update();
+    return none;
+}
+
+// Ağ kaynaklarını serbest bırakır ve ağ sistemini kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownNetwork() {
+    // Yerel çağrı: native_network.shutdown();
+    print("Ağ sistemi kapatıldı.");
+    return none;
+}
+
+// --- Sunucu İşlemleri ---
+
+// Sunucu olarak bir ağ dinleyiciyi başlatır.
+// port: Gelen bağlantılar için dinlenecek port numarası.
+// maxClients: Maksimum eş zamanlı istemci sayısı.
+// Bu fonksiyon C++ tarafında bir sunucu soketi açar ve dinlemeye başlar.
+fun startServer(port, maxClients) {
+    // Yerel çağrı: native_network.startServer(port, maxClients);
+    print("Sunucu başlatıldı, port: " + port + ", max istemci: " + maxClients);
+    return none; // Başarılıysa none döner veya hata kodu/objesi
+}
+
+// Bir istemci sunucuya bağlandığında çağrılacak geri çağrıyı kaydeder.
+// callbackFunction: Bir istemci bağlandığında (client_id) ile çağrılacak C-CUBE fonksiyonu.
+fun registerClientConnectedCallback(callbackFunction) {
+    // Yerel çağrı: native_network.registerClientConnectedCallback(callbackFunction);
+    print("İstemci bağlandı geri çağrısı kaydedildi.");
+    return none;
+}
+
+// Bir istemci sunucudan ayrıldığında çağrılacak geri çağrıyı kaydeder.
+// callbackFunction: Bir istemci ayrıldığında (client_id) ile çağrılacak C-CUBE fonksiyonu.
+fun registerClientDisconnectedCallback(callbackFunction) {
+    // Yerel çağrı: native_network.registerClientDisconnectedCallback(callbackFunction);
+    print("İstemci ayrıldı geri çağrısı kaydedildi.");
+    return none;
+}
+
+// Belirli bir istemciye veri gönderir.
+// clientId: Hedef istemcinin kimliği.
+// data: Gönderilecek string veri.
+// reliable: Güvenilir (TCP benzeri) iletim mi (true) yoksa güvenilmez (UDP benzeri) mi (false).
+fun sendToClient(clientId, data, reliable) {
+    // Yerel çağrı: native_network.sendToClient(clientId, data, reliable);
+    return none;
+}
+
+// Tüm bağlı istemcilere veri gönderir (broadcast).
+// data: Gönderilecek string veri.
+// reliable: Güvenilir (TCP benzeri) iletim mi (true) yoksa güvenilmez (UDP benzeri) mi (false).
+fun broadcastToClients(data, reliable) {
+    // Yerel çağrı: native_network.broadcastToClients(data, reliable);
+    return none;
+}
+
+// Sunucuyu durdurur ve tüm istemci bağlantılarını kapatır.
+fun stopServer() {
+    // Yerel çağrı: native_network.stopServer();
+    print("Sunucu durduruldu.");
+    return none;
+}
+
+// --- İstemci İşlemleri ---
+
+// Sunucuya bağlanmaya çalışır.
+// ipAddress: Sunucunun IP adresi (örn: "127.0.0.1", "oyunserverim.com").
+// port: Sunucunun port numarası.
+// Bu fonksiyon C++ tarafında bir istemci soketi oluşturur ve bağlanmayı dener.
+fun connectToServer(ipAddress, port) {
+    // Yerel çağrı: native_network.connectToServer(ipAddress, port);
+    print("Sunucuya bağlanılıyor: " + ipAddress + ":" + port);
+    return none; // Bağlantı başarılıysa none döner veya hata kodu/objesi
+}
+
+// Sunucuya başarıyla bağlandığında çağrılacak geri çağrıyı kaydeder.
+fun registerConnectedCallback(callbackFunction) {
+    // Yerel çağrı: native_network.registerConnectedCallback(callbackFunction);
+    print("Bağlandı geri çağrısı kaydedildi.");
+    return none;
+}
+
+// Sunucu bağlantısı kesildiğinde çağrılacak geri çağrıyı kaydeder.
+fun registerDisconnectedCallback(callbackFunction) {
+    // Yerel çağrı: native_network.registerDisconnectedCallback(callbackFunction);
+    print("Bağlantı kesildi geri çağrısı kaydedildi.");
+    return none;
+}
+
+// Sunucuya veri gönderir.
+// data: Gönderilecek string veri.
+// reliable: Güvenilir (TCP benzeri) iletim mi (true) yoksa güvenilmez (UDP benzeri) mi (false).
+fun sendToServer(data, reliable) {
+    // Yerel çağrı: native_network.sendToServer(data, reliable);
+    return none;
+}
+
+// Sunucu bağlantısını keser.
+fun disconnectFromServer() {
+    // Yerel çağrı: native_network.disconnectFromServer();
+    print("Sunucu bağlantısı kesildi.");
+    return none;
+}
+
+// --- Ortak Veri Alışverişi ve Olay İşleme ---
+
+// Gelen veriler işlendiğinde çağrılacak geri çağrıyı kaydeder.
+// callbackFunction: Gelen mesajı (sender_id, message_string) ile alacak C-CUBE fonksiyonu.
+// Sunucu için sender_id istemci ID'si, istemci için sender_id 0 veya sunucu ID'si olabilir.
+fun registerMessageReceivedCallback(callbackFunction) {
+    // Yerel çağrı: native_network.registerMessageReceivedCallback(callbackFunction);
+    print("Mesaj alındı geri çağrısı kaydedildi.");
+    return none;
+}
+
+// Şu anki ağ bağlantı durumunu döndürür ("DISCONNECTED", "CONNECTING", "CONNECTED", "SERVER_RUNNING").
+fun getNetworkStatus() {
+    // Yerel çağrı: native_network.getNetworkStatus();
+    return "DISCONNECTED"; // Yer tutucu
+}

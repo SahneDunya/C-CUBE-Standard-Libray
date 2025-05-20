@@ -1,0 +1,119 @@
+fun createTilemap(width, height, tileWidth, tileHeight, tilesetPath) {
+    // Yerel çağrı: native_tilemap.createTilemap(width, height, tileWidth, tileHeight, tilesetPath);
+    return 0; // Yer tutucu ID (0 hata veya none)
+}
+
+// Bir tilemap tanım dosyasından (örn: Tiled JSON/XML çıktısı) tilemap'i yükler.
+// path: Tilemap tanım dosyasının yolu.
+// Bu fonksiyon genellikle birden fazla katmanı, çarpışma objelerini ve fayans özelliklerini yükler.
+fun loadTilemap(path) {
+    // Yerel çağrı: native_tilemap.loadTilemap(path);
+    return 0; // Yer tutucu ID (0 hata veya none)
+}
+
+// Yüklenmiş bir tilemap'i bellekten kaldırır.
+fun unloadTilemap(tilemapId) {
+    // Yerel çağrı: native_tilemap.unloadTilemap(tilemapId);
+    return none;
+}
+
+// --- Fayans (Tile) Yönetimi ---
+
+// Belirli bir koordinattaki fayansın ID'sini ayarlar.
+// tilemapId: Hedef tilemap'in ID'si.
+// layerIndex: Fayansın ayarlanacağı katmanın indeksi (0'dan başlar).
+// x, y: Fayansın ızgara koordinatları.
+// tileId: Fayans setindeki fayansın ID'si.
+fun setTile(tilemapId, layerIndex, x, y, tileId) {
+    // Yerel çağrı: native_tilemap.setTile(tilemapId, layerIndex, x, y, tileId);
+    return none;
+}
+
+// Belirli bir koordinattaki fayansın ID'sini döndürür.
+fun getTile(tilemapId, layerIndex, x, y) {
+    // Yerel çağrı: native_tilemap.getTile(tilemapId, layerIndex, x, y);
+    return -1; // Yer tutucu (-1 geçersiz fayans veya yok)
+}
+
+// Bir fayansın fiziksel özelliklerini ayarlar (örn: "SOLID", "PLATFORM", "NONE").
+// Bu, genellikle belirli fayans ID'leri için önceden tanımlanır, ancak dinamik olarak da ayarlanabilir.
+fun setTilePhysicsType(tilemapId, tileId, physicsType) {
+    // Yerel çağrı: native_tilemap.setTilePhysicsType(tilemapId, tileId, physicsType);
+    return none;
+}
+
+// --- Katman (Layer) Yönetimi ---
+
+// Bir tilemap'e yeni bir katman ekler.
+// tilemapId: Hedef tilemap'in ID'si.
+// layerName: Yeni katmanın adı (isteğe bağlı).
+// returnIndex: Yeni katmanın indeksi.
+fun addLayer(tilemapId, layerName) {
+    // Yerel çağrı: native_tilemap.addLayer(tilemapId, layerName);
+    return 0; // Yer tutucu (yeni katmanın indeksi)
+}
+
+// Bir katmanın görünürlüğünü ayarlar.
+fun setLayerVisible(tilemapId, layerIndex, visible) {
+    // Yerel çağrı: native_tilemap.setLayerVisible(tilemapId, layerIndex, visible);
+    return none;
+}
+
+// Bir katmanın opaklığını (alpha) ayarlar.
+fun setLayerOpacity(tilemapId, layerIndex, opacity) {
+    // Yerel çağrı: native_tilemap.setLayerOpacity(tilemapId, layerIndex, opacity);
+    return none;
+}
+
+// --- Çarpışma ve Sorgulama ---
+
+// Dünya koordinatlarını fayans ızgara koordinatlarına dönüştürür.
+// tilemapId: İlgili tilemap.
+// worldX, worldY: Dünya koordinatları.
+// return {"x": gridX, "y": gridY}
+fun worldToGrid(tilemapId, worldX, worldY) {
+    // Yerel çağrı: native_tilemap.worldToGrid(tilemapId, worldX, worldY);
+    return {"x": 0, "y": 0}; // Yer tutucu
+}
+
+// Fayans ızgara koordinatlarını dünya koordinatlarına dönüştürür (fayansın merkezi).
+// tilemapId: İlgili tilemap.
+// gridX, gridY: Izgara koordinatları.
+// return {"x": worldX, "y": worldY}
+fun gridToWorld(tilemapId, gridX, gridY) {
+    // Yerel çağrı: native_tilemap.gridToWorld(tilemapId, gridX, gridY);
+    return {"x": 0.0, "y": 0.0}; // Yer tutucu
+}
+
+// Belirli bir dünya koordinatındaki fayansın çarpışma tipini döndürür.
+// layerIndex: Kontrol edilecek katman.
+fun getCollisionTypeAt(tilemapId, layerIndex, worldX, worldY) {
+    // Yerel çağrı: native_tilemap.getCollisionTypeAt(tilemapId, layerIndex, worldX, worldY);
+    return "NONE"; // Yer tutucu ("SOLID", "PLATFORM", "NONE" vb.)
+}
+
+// Belirli bir alanın (oyuncu, düşman vb.) tilemap ile çarpışıp çarpışmadığını kontrol eder.
+// entityX, entityY, entityWidth, entityHeight: Kontrol edilecek varlığın sınır kutusu.
+// collisionLayers: Kontrol edilecek katmanların indeksi listesi (örneğin [0, 1]).
+// return { "collided": true/false, "tileX": x, "tileY": y, "collisionType": type }
+fun checkCollision(tilemapId, entityX, entityY, entityWidth, entityHeight, collisionLayers) {
+    // Yerel çağrı: native_tilemap.checkCollision(tilemapId, entityX, entityY, entityWidth, entityHeight, collisionLayers);
+    return {"collided": false, "tileX": -1, "tileY": -1, "collisionType": "NONE"}; // Yer tutucu
+}
+
+// --- Render ve Güncelleme ---
+
+// Tilemap'i ekrana render eder. Genellikle oyunun render döngüsünde çağrılır.
+// tilemapId: Render edilecek tilemap'in ID'si.
+// cameraX, cameraY: Kameranın dünya koordinatları (görünüm alanı için).
+fun renderTilemap(tilemapId, cameraX, cameraY) {
+    // Yerel çağrı: native_tilemap.renderTilemap(tilemapId, cameraX, cameraY);
+    return none;
+}
+
+// Tilemap'i günceller (varsa animasyonlu fayanslar veya dinamik değişiklikler için).
+// deltaTime: Son kareden bu yana geçen zaman.
+fun updateTilemap(tilemapId, deltaTime) {
+    // Yerel çağrı: native_tilemap.updateTilemap(tilemapId, deltaTime);
+    return none;
+}

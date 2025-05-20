@@ -1,0 +1,175 @@
+fun initGraphics(width, height, title, fullscreen) {
+    // Yerel çağrı: native_graphics.init(width, height, title, fullscreen);
+    print("Grafik sistemi başlatıldı: " + width + "x" + height);
+    return none; // Başarılıysa none döner veya hata kodu/objesi
+}
+
+// Grafik motorunu günceller (örneğin, olayları işler, tamponları takas eder).
+// Oyun döngüsünün her iterasyonunda çağrılır.
+fun updateGraphics() {
+    // Yerel çağrı: native_graphics.update();
+    return none;
+}
+
+// Grafik kaynaklarını serbest bırakır ve grafik motorunu kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownGraphics() {
+    // Yerel çağrı: native_graphics.shutdown();
+    print("Grafik sistemi kapatıldı.");
+    return none;
+}
+
+// Ekranı temizler. Renk (r, g, b, a) değerleri 0.0 ile 1.0 arasındadır.
+fun clearScreen(r, g, b, a) {
+    // Yerel çağrı: native_graphics.clear(r, g, b, a);
+    return none;
+}
+
+// --- Temel Şekil Çizimi ---
+// Bu fonksiyonlar, C++ tarafında optimize edilmiş, platforma özel çizim komutlarına çevrilir.
+
+// Bir noktayı çizer.
+fun drawPoint(x, y, r, g, b, a) {
+    // Yerel çağrı: native_graphics.drawPoint(x, y, r, g, b, a);
+    return none;
+}
+
+// Bir çizgiyi çizer.
+fun drawLine(x1, y1, x2, y2, r, g, b, a) {
+    // Yerel çağrı: native_graphics.drawLine(x1, y1, x2, y2, r, g, b, a);
+    return none;
+}
+
+// Dolgulu bir dikdörtgen çizer.
+fun fillRect(x, y, width, height, r, g, b, a) {
+    // Yerel çağrı: native_graphics.fillRect(x, y, width, height, r, g, b, a);
+    return none;
+}
+
+// Çerçeveli bir dikdörtgen çizer.
+fun drawRect(x, y, width, height, r, g, b, a) {
+    // Yerel çağrı: native_graphics.drawRect(x, y, width, height, r, g, b, a);
+    return none;
+}
+
+// Dolgulu bir çember çizer.
+// cx, cy: merkez koordinatları, radius: yarıçap
+fun fillCircle(cx, cy, radius, r, g, b, a) {
+    // Yerel çağrı: native_graphics.fillCircle(cx, cy, radius, r, g, b, a);
+    return none;
+}
+
+// Çerçeveli bir çember çizer.
+fun drawCircle(cx, cy, radius, r, g, b, a) {
+    // Yerel çağrı: native_graphics.drawCircle(cx, cy, radius, r, g, b, a);
+    return none;
+}
+
+// --- Doku ve Resim Yönetimi ---
+
+// Bir doku (resim) yükler ve benzersiz bir kimlik döndürür.
+// Path: dosya yolu (örneğin "assets/player.png")
+// Bu fonksiyon C++ tarafında resim dosyasını okuyacak, GPU'ya yükleyecek ve bir Texture ID'si döndürecektir.
+fun loadTexture(path) {
+    // Yerel çağrı: native_graphics.loadTexture(path);
+    // Integer ID veya bir "Texture" objesi dönebilir. Şimdilik ID varsayalım.
+    return 0; // Yer tutucu ID
+}
+
+// Bir dokuyu (resmi) belirli bir konumda çizer.
+// textureId: loadTexture'dan dönen doku kimliği
+// x, y: çizim konumu
+// width, height: dokunun çizileceği boyut
+// rotation: derece cinsinden dönme açısı
+// alpha: şeffaflık (0.0 - 1.0)
+fun drawTexture(textureId, x, y, width, height, rotation, alpha) {
+    // Yerel çağrı: native_graphics.drawTexture(textureId, x, y, width, height, rotation, alpha);
+    return none;
+}
+
+// Bir dokunun (resmin) belirli bir parçasını (sprite) çizer.
+// textureId: ana doku kimliği
+// sx, sy, sw, sh: kaynak dokudaki sprite'ın koordinatları ve boyutları
+// dx, dy, dw, dh: ekrandaki hedef koordinatlar ve boyutlar
+// rotation, alpha: dönme ve şeffaflık
+fun drawSprite(textureId, sx, sy, sw, sh, dx, dy, dw, dh, rotation, alpha) {
+    // Yerel çağrı: native_graphics.drawSprite(textureId, sx, sy, sw, sh, dx, dy, dw, dh, rotation, alpha);
+    return none;
+}
+
+// --- Metin Çizimi ---
+// Basit metin çizimi için temel font yönetimi.
+
+// Bir font yükler ve benzersiz bir kimlik döndürür.
+// path: font dosyasının yolu (örn. "assets/font.ttf")
+// size: font boyutu (piksel cinsinden)
+fun loadFont(path, size) {
+    // Yerel çağrı: native_graphics.loadFont(path, size);
+    return 0; // Yer tutucu Font ID
+}
+
+// Metni belirli bir konumda çizer.
+// fontId: loadFont'tan dönen font kimliği
+// text: çizilecek metin
+// x, y: çizim konumu
+// r, g, b, a: metin rengi
+fun drawText(fontId, text, x, y, r, g, b, a) {
+    // Yerel çağrı: native_graphics.drawText(fontId, text, x, y, r, g, b, a);
+    return none;
+}
+
+// --- Gelişmiş Grafik Durum Yönetimi (Opsiyonel) ---
+// Daha karmaşık oyunlar için render durumlarını yönetmek için kullanılabilir.
+
+// Çizim modunu ayarlar (örneğin "BLEND", "ADDITIVE", "OPAQUE").
+// Bu, C++ tarafında OpenGL/Vulkan karışım modlarını ayarlamaya karşılık gelir.
+fun setBlendMode(mode) {
+    // Yerel çağrı: native_graphics.setBlendMode(mode);
+    return none;
+}
+
+// --- 3D Grafikler İçin Başlangıç Noktaları (Opsiyonel) ---
+// Eğer 3D desteği düşünülüyorsa eklenecek temel fonskiyonlar.
+// Bunlar genellikle ayrı bir 3d_graphics.ccb modülünde yer alabilir.
+
+// Perspektif matrisini ayarlar.
+// fov: görüş alanı açısı, aspect: en boy oranı, near: yakın kırpma düzlemi, far: uzak kırpma düzlemi
+ fun setPerspective(fov, aspect, near, far) {
+     native_graphics.setPerspective(fov, aspect, near, far);
+ }
+
+// Kamera konumunu ve yönünü ayarlar.
+// eyeX, eyeY, eyeZ: kamera konumu
+// targetX, targetY, targetZ: kameranın baktığı nokta
+// upX, upY, upZ: yukarı vektörü
+ fun setCamera(eyeX, eyeY, eyeZ, targetX, targetY, targetZ, upX, upY, upZ) {
+     native_graphics.setCamera(eyeX, eyeY, eyeZ, targetX, targetY, targetZ, upX, upY, upZ);
+ }
+
+// Bir 3D modeli yükler.
+ fun loadModel(path) {
+     native_graphics.loadModel(path);
+    return 0; // Model ID
+ }
+
+// Bir 3D modeli çizer.
+// modelId: yüklenen modelin kimliği
+// x, y, z: konum
+// rotX, rotY, rotZ: dönme (açılar)
+// scaleX, scaleY, scaleZ: ölçeklendirme
+ fun drawModel(modelId, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) {
+     native_graphics.drawModel(modelId, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ);
+ }
+
+// --- Çizim Başlangıç/Bitiş ---
+// Çizim komutlarının bir blok içinde gruplanması için kullanılır.
+// Bu, C++ tarafında batching veya komut tamponları için önemlidir.
+fun beginDrawing() {
+    // Yerel çağrı: native_graphics.begin();
+    return none;
+}
+
+fun endDrawing() {
+    // Yerel çağrı: native_graphics.end();
+    return none;
+}

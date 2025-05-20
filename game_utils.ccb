@@ -1,0 +1,108 @@
+fun setGameState(stateName) {
+    // Yerel çağrı: native_game.setGameState(stateName);
+    print("Oyun durumu ayarlandı: " + stateName);
+    return none;
+}
+
+// Oyunun mevcut durumunu döndürür.
+fun getGameState() {
+    // Yerel çağrı: native_game.getGameState();
+    return "UNKNOWN"; // Yer tutucu
+}
+
+// Oyunun ana döngüsünden çıkış yapar ve oyunu kapatır.
+fun quitGame() {
+    // Yerel çağrı: native_game.quitGame();
+    print("Oyun kapatılıyor...");
+    return none;
+}
+
+// --- Sahne Yönetimi (Basit) ---
+
+// Belirli bir sahneye yükleme yapar ve o sahneyi başlatır.
+// sceneName: Yüklenecek sahnenin adı veya ID'si (örneğin "MainMenu", "Level1", "Credits").
+// Bu fonksiyon, C++ tarafında ilgili sahne varlıklarını yükleyebilir ve oyunu o sahneye geçirebilir.
+fun loadScene(sceneName) {
+    // Yerel çağrı: native_game.loadScene(sceneName);
+    print("Sahne yükleniyor: " + sceneName);
+    return none;
+}
+
+// Şu anki sahnenin adını döndürür.
+fun getCurrentScene() {
+    // Yerel çağrı: native_game.getCurrentScene();
+    return "UnknownScene"; // Yer tutucu
+}
+
+// --- Kaydetme ve Yükleme (Basit Yardımcılar) ---
+
+// Oyunu belirtilen dosyaya kaydeder.
+// saveData: Kaydedilecek oyun verileri (string veya bir map/object olarak).
+// filename: Kayıt dosyasının adı (örn: "savegame1.json").
+// Bu fonksiyon genellikle 'file_utils' modülünü kullanarak dosyaya yazar.
+fun saveGame(saveData, filename) {
+    // Yerel çağrı: native_game.saveGame(saveData, filename);
+    print("Oyun kaydedildi: " + filename);
+    return true; // Başarılıysa true, değilse false
+}
+
+// Belirtilen dosyadan oyun verilerini yükler.
+// filename: Yüklenecek kayıt dosyasının adı.
+// Eğer dosya bulunamazsa veya yüklenemezse 'none' döner.
+fun loadGame(filename) {
+    // Yerel çağrı: native_game.loadGame(filename);
+    return none; // Yer tutucu (string veya map/object olarak döner)
+}
+
+// --- Nesne Havuzlama (Object Pooling) ---
+// Performans için sıkça oluşturulan/yok edilen nesneleri yönetmek için kullanılır.
+
+// Belirli bir nesne türü için bir havuz oluşturur.
+// objectType: Havuzlanacak nesnenin türü (örneğin "Bullet", "ParticleEffect").
+// initialSize: Havuzun başlangıç boyutu.
+fun createObjectPool(objectType, initialSize) {
+    // Yerel çağrı: native_game.createObjectPool(objectType, initialSize);
+    print("Nesne havuzu oluşturuldu: " + objectType + " boyutu: " + initialSize);
+    return none;
+}
+
+// Havuzdan bir nesne alır. Eğer havuz boşsa yeni bir nesne oluşturabilir.
+fun getPooledObject(objectType) {
+    // Yerel çağrı: native_game.getPooledObject(objectType);
+    return none; // Yer tutucu (havuzdan alınan nesne objesi)
+}
+
+// Bir nesneyi havuza geri döndürür.
+fun returnPooledObject(objectType, obj) {
+    // Yerel çağrı: native_game.returnPooledObject(objectType, obj);
+    return none;
+}
+
+// --- Genel Oyun Yardımcıları ---
+
+// Oyunun başlatılmasından bu yana geçen toplam kare sayısını döndürür.
+fun getFrameCount() {
+    // Yerel çağrı: native_game.getFrameCount();
+    return 0; // Yer tutucu
+}
+
+// Oyunun FPS (Kare Başına Düşen Kare) değerini döndürür.
+fun getFPS() {
+    // Yerel çağrı: native_game.getFPS();
+    return 0; // Yer tutucu
+}
+
+// Belirli bir olay için bir geri çağrıyı (callback) zamanlar.
+// delayMs: Geri çağrının ne kadar milisaniye sonra çalıştırılacağı.
+// callbackFunction: Gecikmeden sonra çağrılacak C-CUBE fonksiyonu.
+// repeat: 'true' ise tekrar eder, 'false' ise bir kez çalışır.
+fun setTimedCallback(delayMs, callbackFunction, repeat) {
+    // Yerel çağrı: native_game.setTimedCallback(delayMs, callbackFunction, repeat);
+    return 0; // Zamanlayıcı ID'si (iptal etmek için kullanılabilir)
+}
+
+// Belirtilen zamanlayıcıyı iptal eder.
+fun cancelTimedCallback(timerId) {
+    // Yerel çağrı: native_game.cancelTimedCallback(timerId);
+    return none;
+}

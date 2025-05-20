@@ -1,0 +1,131 @@
+fun readTextFile(path) {
+    // Yerel çağrı: native_file.readTextFile(path);
+    return none; // Yer tutucu (string veya none döner)
+}
+
+// Bir string içeriği bir dosyaya yazar.
+// path: Yazılacak dosyanın yolu.
+// content: Dosyaya yazılacak string içerik.
+// append: Dosyanın sonuna eklemek için 'true', dosyanın içeriğini baştan yazmak için 'false'.
+// Yazma başarılı olursa 'true', başarısız olursa 'false' döner.
+fun writeTextFile(path, content, append) {
+    // Yerel çağrı: native_file.writeTextFile(path, content, append);
+    return false; // Yer tutucu (boolean döner)
+}
+
+// Bir dosyayı satır satır okur ve her satırı içeren bir liste döndürür.
+// path: Dosyanın yolu.
+// Eğer dosya bulunamazsa veya okunamazsa boş bir liste döner.
+fun readLinesFromFile(path) {
+    // Yerel çağrı: native_file.readLinesFromFile(path);
+    return []; // Yer tutucu (string listesi döner)
+}
+
+// Bir liste içindeki her string'i dosyanın ayrı bir satırı olarak yazar.
+// path: Yazılacak dosyanın yolu.
+// lines: Yazılacak string listesi.
+// append: Dosyanın sonuna eklemek için 'true', dosyanın içeriğini baştan yazmak için 'false'.
+fun writeLinesToFile(path, lines, append) {
+    // Yerel çağrı: native_file.writeLinesToFile(path, lines, append);
+    return false; // Yer tutucu (boolean döner)
+}
+
+// --- Dosya ve Dizin Bilgileri ---
+
+// Bir dosyanın veya dizinin var olup olmadığını kontrol eder.
+fun exists(path) {
+    // Yerel çağrı: native_file.exists(path);
+    return false; // Yer tutucu
+}
+
+// Bir yolun dosya olup olmadığını kontrol eder.
+fun isFile(path) {
+    // Yerel çağrı: native_file.isFile(path);
+    return false; // Yer tutucu
+}
+
+// Bir yolun dizin olup olmadığını kontrol eder.
+fun isDirectory(path) {
+    // Yerel çağrı: native_file.isDirectory(path);
+    return false; // Yer tutucu
+}
+
+// Bir dosyanın boyutunu (bayt cinsinden) döndürür.
+// Dosya bulunamazsa veya erişilemezse -1 döner.
+fun getFileSize(path) {
+    // Yerel çağrı: native_file.getFileSize(path);
+    return -1; // Yer tutucu
+}
+
+// Bir dosyanın son değiştirilme zamanını (timestamp) döndürür.
+// Dosya bulunamazsa veya erişilemezse -1 döner.
+fun getLastModifiedTime(path) {
+    // Yerel çağrı: native_file.getLastModifiedTime(path);
+    return -1; // Yer tutucu (unix timestamp veya benzeri)
+}
+
+// --- Dosya ve Dizin İşlemleri ---
+
+// Bir dosyayı siler.
+fun deleteFile(path) {
+    // Yerel çağrı: native_file.deleteFile(path);
+    return false; // Başarılıysa true, değilse false
+}
+
+// Bir dizini (ve içindeki tüm dosyaları/dizinleri) siler.
+// Dikkat: Bu işlem geri alınamaz!
+fun deleteDirectory(path) {
+    // Yerel çağrı: native_file.deleteDirectory(path);
+    return false; // Başarılıysa true, değilse false
+}
+
+// Bir dosyayı veya dizini yeniden adlandırır/taşır.
+// oldPath: Mevcut yol.
+// newPath: Yeni yol.
+fun rename(oldPath, newPath) {
+    // Yerel çağrı: native_file.rename(oldPath, newPath);
+    return false; // Başarılıysa true, değilse false
+}
+
+// Bir dizin oluşturur. Eğer üst dizinler yoksa onları da oluşturabilir.
+// path: Oluşturulacak dizin yolu.
+// recursive: 'true' ise gerekli üst dizinleri de oluşturur.
+fun createDirectory(path, recursive) {
+    // Yerel çağrı: native_file.createDirectory(path, recursive);
+    return false; // Başarılıysa true, değilse false
+}
+
+// Bir dizinin içeriğini (dosyalar ve dizinler) liste olarak döndürür.
+// path: Listelenecek dizin yolu.
+// recursive: 'true' ise alt dizinlere de girerek tüm içeriği listeler (tam yollarla).
+fun listDirectory(path, recursive) {
+    // Yerel çağrı: native_file.listDirectory(path, recursive);
+    return []; // Yer tutucu (string listesi)
+}
+
+// --- Yol İşlemleri ---
+
+// Bir dosya yolundan sadece dosya adını (uzantısıyla birlikte) döndürür.
+fun getFileName(path) {
+    // Yerel çağrı: native_file.getFileName(path);
+    return ""; // Yer tutucu
+}
+
+// Bir dosya yolundan dosyanın uzantısını döndürür (örneğin "txt", "png").
+fun getFileExtension(path) {
+    // Yerel çağrı: native_file.getFileExtension(path);
+    return ""; // Yer tutucu
+}
+
+// Bir dosya yolundan dizin kısmını döndürür.
+fun getDirectoryName(path) {
+    // Yerel çağrı: native_file.getDirectoryName(path);
+    return ""; // Yer tutucu
+}
+
+// İki yol parçasını platforma uygun şekilde birleştirir.
+// Örn: joinPaths("data", "levels/level1.txt") -> "data/levels/level1.txt" (Linux/macOS) veya "data\levels\level1.txt" (Windows)
+fun joinPaths(part1, part2) {
+    // Yerel çağrı: native_file.joinPaths(part1, part2);
+    return ""; // Yer tutucu
+}

@@ -1,0 +1,86 @@
+fun loadAnimation(path, type) {
+    // Yerel çağrı: native_animation.loadAnimation(path, type);
+    return 0; // Yer tutucu ID (0 hata veya none)
+}
+
+// Yüklenmiş bir animasyon tanımını serbest bırakır.
+fun unloadAnimation(animationId) {
+    // Yerel çağrı: native_animation.unloadAnimation(animationId);
+    return none;
+}
+
+// --- Animasyon Oynatma Kontrolü ---
+
+// Bir oyun nesnesine (entityId) animasyon atar ve oynatmaya başlar.
+// entityId: Animasyonun oynatılacağı oyun nesnesinin kimliği.
+// animationId: Oynatılacak animasyonun tanım kimliği.
+// loop: Animasyonun döngüde mi oynatılacağı (true) yoksa bir kez mi (false).
+// speedMultiplier: Animasyon oynatma hızı çarpanı (1.0 normal hız).
+// blendDuration: Geçiş animasyon süresi (saniye cinsinden). SKELETAL animasyonlar için.
+fun playAnimation(entityId, animationId, loop, speedMultiplier, blendDuration) {
+    // Yerel çağrı: native_animation.playAnimation(entityId, animationId, loop, speedMultiplier, blendDuration);
+    return none;
+}
+
+// Belirli bir nesnedeki animasyonu durdurur.
+fun stopAnimation(entityId) {
+    // Yerel çağrı: native_animation.stopAnimation(entityId);
+    return none;
+}
+
+// Belirli bir nesnedeki animasyonu duraklatır.
+fun pauseAnimation(entityId) {
+    // Yerel çağrı: native_animation.pauseAnimation(entityId);
+    return none;
+}
+
+// Belirli bir nesnedeki duraklatılmış animasyonu devam ettirir.
+fun resumeAnimation(entityId) {
+    // Yerel çağrı: native_animation.resumeAnimation(entityId);
+    return none;
+}
+
+// Bir nesnedeki mevcut animasyonun oynatma hızını ayarlar.
+fun setAnimationSpeed(entityId, speedMultiplier) {
+    // Yerel çağrı: native_animation.setAnimationSpeed(entityId, speedMultiplier);
+    return none;
+}
+
+// --- Animasyon Durum Bilgisi ---
+
+// Bir nesnedeki mevcut animasyonun adını döndürür.
+fun getCurrentAnimationName(entityId) {
+    // Yerel çağrı: native_animation.getCurrentAnimationName(entityId);
+    return ""; // Yer tutucu
+}
+
+// Bir nesnedeki animasyonun oynatılıp oynatılmadığını kontrol eder.
+fun isAnimationPlaying(entityId) {
+    // Yerel çağrı: native_animation.isAnimationPlaying(entityId);
+    return false; // Yer tutucu
+}
+
+// Bir nesnedeki animasyonun tamamlanıp tamamlanmadığını kontrol eder (döngüde değilse).
+fun isAnimationFinished(entityId) {
+    // Yerel çağrı: native_animation.isAnimationFinished(entityId);
+    return false; // Yer tutucu
+}
+
+// --- Animasyon Olayları (Callbacks) ---
+
+// Bir animasyon bittiğinde (tek seferlik oynatıldıysa) veya bir döngünün tamamlandığında çağrılacak geri çağrıyı kaydeder.
+// entityId: Geri çağrının kaydedileceği nesnenin kimliği.
+// callbackFunction: Animasyon bittiğinde (entityId, animationName) ile çağrılacak C-CUBE fonksiyonu.
+fun registerAnimationFinishedCallback(entityId, callbackFunction) {
+    // Yerel çağrı: native_animation.registerAnimationFinishedCallback(entityId, callbackFunction);
+    return none;
+}
+
+// Animasyon içinde belirli bir kareye ulaşıldığında veya bir "olay etiketi" (event tag) tetiklendiğinde çağrılacak geri çağrıyı kaydeder.
+// entityId: Nesne kimliği.
+// eventName: Animasyon verisinde tanımlı olay etiketi adı (örn: "footstep", "attack_hit").
+// callbackFunction: Olay tetiklendiğinde (entityId, eventName, currentFrame) ile çağrılacak C-CUBE fonksiyonu.
+fun registerAnimationEventCallback(entityId, eventName, callbackFunction) {
+    // Yerel çağrı: native_animation.registerAnimationEventCallback(entityId, eventName, callbackFunction);
+    return none;
+}

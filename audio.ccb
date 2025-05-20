@@ -1,0 +1,113 @@
+fun initAudio() {
+    // Yerel çağrı: native_audio.init();
+    print("Ses sistemi başlatıldı.");
+    return none;
+}
+
+// Ses sistemini günceller. Oyun döngüsünün her karesinde çağrılabilir,
+// ancak genellikle ses motoru kendi iç güncellemesini yapar.
+fun updateAudio() {
+    // Yerel çağrı: native_audio.update();
+    return none;
+}
+
+// Ses kaynaklarını serbest bırakır ve ses motorunu kapatır.
+// Oyunun kapanışında çağrılır.
+fun shutdownAudio() {
+    // Yerel çağrı: native_audio.shutdown();
+    print("Ses sistemi kapatıldı.");
+    return none;
+}
+
+// --- Ses Yükleme ve Çalma ---
+
+// Bir ses dosyasını yükler ve benzersiz bir kimlik döndürür.
+// path: ses dosyasının yolu (örn: "assets/explosion.wav", "assets/background_music.mp3")
+// stream: Sesin diskten akışla mı çalınacağını (true) yoksa tamamen belleğe mi yükleneceğini (false) belirtir.
+// Müzik için 'true', kısa ses efektleri için 'false' tercih edilir.
+fun loadSound(path, stream) {
+    // Yerel çağrı: native_audio.loadSound(path, stream);
+    return 0; // Yer tutucu ID (bir integer ID veya bir Sound objesi dönebilir)
+}
+
+// Yüklenmiş bir sesi çalar.
+// soundId: loadSound'dan dönen ses kimliği
+// volume: Ses şiddeti (0.0 ile 1.0 arası)
+// loop: Sesin döngüde çalınıp çalınmayacağı (boolean)
+fun playSound(soundId, volume, loop) {
+    // Yerel çağrı: native_audio.playSound(soundId, volume, loop);
+    return none;
+}
+
+// Bir sesin çalmasını durdurur.
+fun stopSound(soundId) {
+    // Yerel çağrı: native_audio.stopSound(soundId);
+    return none;
+}
+
+// Tüm seslerin çalmasını durdurur.
+fun stopAllSounds() {
+    // Yerel çağrı: native_audio.stopAllSounds();
+    return none;
+}
+
+// Bir sesin belirli bir ID'ye sahip bir örneğinin çalmasını durdurur (Birden fazla aynı ses çalınabilir).
+// playSound fonksiyonunun bir instance ID döndürdüğü varsayılır.
+ fun stopSoundInstance(instanceId) {
+      native_audio.stopSoundInstance(instanceId);
+ }
+
+// Bir sesin duraklatılmasını sağlar.
+fun pauseSound(soundId) {
+    // Yerel çağrı: native_audio.pauseSound(soundId);
+    return none;
+}
+
+// Duraklatılmış bir sesi devam ettirir.
+fun resumeSound(soundId) {
+    // Yerel çağrı: native_audio.resumeSound(soundId);
+    return none;
+}
+
+// Bir sesin çalınıp çalınmadığını kontrol eder.
+fun isSoundPlaying(soundId) {
+    // Yerel çağrı: native_audio.isSoundPlaying(soundId);
+    return false;
+}
+
+// Bir sesin hacmini ayarlar.
+fun setSoundVolume(soundId, volume) {
+    // Yerel çağrı: native_audio.setSoundVolume(soundId, volume);
+    return none;
+}
+
+// Sesin hızını (pitch) ayarlar.
+fun setSoundPitch(soundId, pitch) {
+    // Yerel çağrı: native_audio.setSoundPitch(soundId, pitch);
+    return none;
+}
+
+// --- Global Ses Kontrolü ---
+
+// Genel ses şiddetini ayarlar.
+fun setMasterVolume(volume) {
+    // Yerel çağrı: native_audio.setMasterVolume(volume);
+    return none;
+}
+
+// --- 3D Ses (Opsiyonel/İleri Seviye) ---
+// Eğer 3D ses desteği istenirse eklenecek temel fonskiyonlar.
+// Bunlar genellikle OpenAL veya FMOD gibi 3D ses destekleyen kütüphaneler aracılığıyla implemente edilir.
+
+// Ses dinleyicisinin (kameranın) konumunu ayarlar.
+// x, y, z: dinleyicinin 3D konumu
+ fun setListenerPosition(x, y, z) {
+      native_audio.setListenerPosition(x, y, z);
+ }
+
+// Belirli bir sesin 3D konumunu ayarlar.
+// soundId: yüklenmiş sesin kimliği
+// x, y, z: ses kaynağının 3D konumu
+ fun setSoundPosition(soundId, x, y, z) {
+      native_audio.setSoundPosition(soundId, x, y, z);
+ }

@@ -1,0 +1,148 @@
+fun create() {
+    return [];
+}
+
+// Belirtilen boyutta ve başlangıç değeriyle bir liste oluşturur.
+// size: Listenin boyutu.
+// initialValue: Tüm elemanlara atanacak başlangıç değeri (isteğe bağlı, varsayılan 'none').
+fun createFilled(size, initialValue) {
+    // Yerel çağrı: native_array.createFilled(size, initialValue);
+    return []; // Yer tutucu
+}
+
+// Bir listenin uzunluğunu döndürür.
+fun length(list) {
+    // C-CUBE'un varsayılan 'length' veya 'size' operatörü/fonksiyonu varsayılır.
+    return len(list); // len() yerleşik fonksiyon varsayılır
+}
+
+// --- Eleman Ekleme ve Çıkarma ---
+
+// Bir listenin sonuna bir eleman ekler.
+fun add(list, element) {
+    // Yerel çağrı: native_array.add(list, element);
+    return none; // Liste doğrudan değiştirilir (void dönüş)
+}
+
+// Belirli bir indekse eleman ekler.
+fun insert(list, index, element) {
+    // Yerel çağrı: native_array.insert(list, index, element);
+    return none;
+}
+
+// Bir listenin sonundaki elemanı kaldırır ve döndürür.
+fun pop(list) {
+    // Yerel çağrı: native_array.pop(list);
+    return none; // Kaldırılan eleman
+}
+
+// Belirli bir indeksteki elemanı kaldırır ve döndürür.
+fun removeAt(list, index) {
+    // Yerel çağrı: native_array.removeAt(list, index);
+    return none; // Kaldırılan eleman
+}
+
+// Bir elemanın ilk geçtiği yeri kaldırır. Eleman bulunamazsa bir şey yapmaz.
+fun remove(list, element) {
+    // Yerel çağrı: native_array.remove(list, element);
+    return none;
+}
+
+// Listenin tüm elemanlarını temizler.
+fun clear(list) {
+    // Yerel çağrı: native_array.clear(list);
+    return none;
+}
+
+// --- Arama ve Sorgulama ---
+
+// Bir elemanın listede olup olmadığını kontrol eder.
+fun contains(list, element) {
+    // Yerel çağrı: native_array.contains(list, element);
+    return false; // Yer tutucu
+}
+
+// Bir elemanın listedeki ilk indeksini döndürür. Bulunamazsa -1 döner.
+fun indexOf(list, element) {
+    // Yerel çağrı: native_array.indexOf(list, element);
+    return -1; // Yer tutucu
+}
+
+// Bir elemanın listedeki son indeksini döndürür. Bulunamazsa -1 döner.
+fun lastIndexOf(list, element) {
+    // Yerel çağrı: native_array.lastIndexOf(list, element);
+    return -1; // Yer tutucu
+}
+
+// Listenin boş olup olmadığını kontrol eder.
+fun isEmpty(list) {
+    return len(list) == 0;
+}
+
+// --- Sıralama ve Ters Çevirme ---
+
+// Bir listeyi artan sırada sıralar.
+// Bu fonksiyon C++ tarafında 'std::sort' kullanır.
+// comparatorFunction: İsteğe bağlı, özel bir karşılaştırma fonksiyonu (a, b) parametreleriyle çağrılır,
+// true dönerse a, b'den önce gelir.
+fun sort(list, comparatorFunction) {
+    // Yerel çağrı: native_array.sort(list, comparatorFunction);
+    return none; // Liste doğrudan değiştirilir
+}
+
+// Bir listeyi tersine çevirir.
+fun reverse(list) {
+    // Yerel çağrı: native_array.reverse(list);
+    return none; // Liste doğrudan değiştirilir
+}
+
+// --- Dönüşüm ve Kopyalama ---
+
+// Bir listenin sığ bir kopyasını oluşturur.
+fun copy(list) {
+    // Yerel çağrı: native_array.copy(list);
+    return []; // Yer tutucu
+}
+
+// Bir listenin belirli bir aralığını yeni bir liste olarak döndürür.
+fun slice(list, startIndex, endIndex) {
+    // Yerel çağrı: native_array.slice(list, startIndex, endIndex);
+    return []; // Yer tutucu
+}
+
+// İki listeyi birleştirir ve yeni bir liste döndürür.
+fun concat(list1, list2) {
+    // Yerel çağrı: native_array.concat(list1, list2);
+    return []; // Yer tutucu
+}
+
+// --- İleri Düzey İşlemler (Lambda/Callback Fonksiyonları İle) ---
+
+// Bir listenin her elemanı üzerinde belirtilen fonksiyonu çağırır.
+// callbackFunction: Her eleman (element, index) ile çağrılacak C-CUBE fonksiyonu.
+fun forEach(list, callbackFunction) {
+    // Yerel çağrı: native_array.forEach(list, callbackFunction);
+    return none;
+}
+
+// Bir listenin elemanlarını dönüştürerek yeni bir liste oluşturur.
+// mapFunction: Her eleman (element, index) ile çağrılacak ve dönüş değeri yeni listeye eklenecek C-CUBE fonksiyonu.
+fun map(list, mapFunction) {
+    // Yerel çağrı: native_array.map(list, mapFunction);
+    return []; // Yer tutucu (yeni liste)
+}
+
+// Bir listeden belirli bir koşulu sağlayan elemanları filtreleyerek yeni bir liste oluşturur.
+// filterFunction: Her eleman (element, index) ile çağrılacak, true dönerse eleman yeni listeye dahil edilir.
+fun filter(list, filterFunction) {
+    // Yerel çağrı: native_array.filter(list, filterFunction);
+    return []; // Yer tutucu (yeni filtreli liste)
+}
+
+// Bir listenin tüm elemanlarını belirtilen bir başlangıç değeriyle birleştirir (reduce/fold).
+// reduceFunction: (accumulator, currentElement, index) ile çağrılacak ve birleştirilmiş değeri döndürecek C-CUBE fonksiyonu.
+// initialAccumulator: Birleştirmenin başlangıç değeri.
+fun reduce(list, reduceFunction, initialAccumulator) {
+    // Yerel çağrı: native_array.reduce(list, reduceFunction, initialAccumulator);
+    return initialAccumulator; // Yer tutucu
+}

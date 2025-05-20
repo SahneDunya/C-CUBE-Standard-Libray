@@ -1,0 +1,112 @@
+fun getGameTimeMs() {
+    // Yerel çağrı: native_time.getGameTimeMs();
+    return 0; // Yer tutucu (integer veya float)
+}
+
+// Oyunun başlatılmasından bu yana geçen süreyi saniye cinsinden döndürür.
+fun getGameTimeS() {
+    // Yerel çağrı: native_time.getGameTimeS();
+    return 0.0; // Yer tutucu (float)
+}
+
+// İşletim sisteminin anlık yüksek çözünürlüklü zaman damgasını döndürür.
+// Bu genellikle performans ölçümleri için kullanılır ve okunabilir bir tarih/saat değildir.
+fun getHighResTimestamp() {
+    // Yerel çağrı: native_time.getHighResTimestamp();
+    return 0; // Yer tutucu (long integer)
+}
+
+// --- Gecikme Fonksiyonları ---
+
+// Belirtilen milisaniye kadar programın çalışmasını duraklatır.
+// Dikkat: Bu fonksiyon, oyun döngüsünü tamamen bloke eder ve genellikle oyunlarda kullanılmamalıdır.
+// Sadece yükleme ekranları veya hata ayıklama gibi özel durumlar için uygundur.
+fun sleepMs(milliseconds) {
+    // Yerel çağrı: native_time.sleepMs(milliseconds);
+    return none;
+}
+
+// Belirtilen saniye kadar programın çalışmasını duraklatır.
+fun sleepS(seconds) {
+    // Yerel çağrı: native_time.sleepS(seconds);
+    return none;
+}
+
+// --- Zamanlayıcı (Stopwatch) Fonksiyonları ---
+// Basit bir kronometre işlevi sağlar.
+
+// Yeni bir kronometre başlatır ve bir kimlik döndürür.
+fun startStopwatch() {
+    // Yerel çağrı: native_time.startStopwatch();
+    return 0; // Yer tutucu ID
+}
+
+// Belirli bir kronometreyi durdurur.
+fun stopStopwatch(stopwatchId) {
+    // Yerel çağrı: native_time.stopStopwatch(stopwatchId);
+    return none;
+}
+
+// Belirli bir kronometrenin durdurulduğu ana kadar geçen süreyi milisaniye cinsinden döndürür.
+// Eğer kronometre hala çalışıyorsa, anlık geçen süreyi döndürür.
+fun getStopwatchElapsedMs(stopwatchId) {
+    // Yerel çağrı: native_time.getStopwatchElapsedMs(stopwatchId);
+    return 0; // Yer tutucu
+}
+
+// Belirli bir kronometrenin durdurulduğu ana kadar geçen süreyi saniye cinsinden döndürür.
+fun getStopwatchElapsedS(stopwatchId) {
+    // Yerel çağrı: native_time.getStopwatchElapsedS(stopwatchId);
+    return 0.0; // Yer tutucu
+}
+
+// --- Tarih ve Saat Fonksiyonları (İleri Seviye / İsteğe Bağlı) ---
+// Daha çok loglama, dosya adları oluşturma veya kullanıcıya tarih/saat gösterme için kullanılır.
+
+// Anlık yerel zamanı string olarak döndürür (örn: "2024-05-20 19:30:45").
+fun getCurrentLocalTime() {
+    // Yerel çağrı: native_time.getCurrentLocalTime();
+    return ""; // Yer tutucu
+}
+
+// Anlık UTC (evrensel eşgüdümlü zaman) zamanı string olarak döndürür.
+fun getCurrentUTCTime() {
+    // Yerel çağrı: native_time.getCurrentUTCTime();
+    return ""; // Yer tutucu
+}
+
+// Yıl bilgisini döndürür.
+fun getYear() {
+    // Yerel çağrı: native_time.getYear();
+    return 0;
+}
+
+// Ay bilgisini döndürür (1-12 arası).
+fun getMonth() {
+    // Yerel çağrı: native_time.getMonth();
+    return 0;
+}
+
+// Gün bilgisini döndürür (1-31 arası).
+fun getDay() {
+    // Yerel çağrı: native_time.getDay();
+    return 0;
+}
+
+// Saat bilgisini döndürür (0-23 arası).
+fun getHour() {
+    // Yerel çağrı: native_time.getHour();
+    return 0;
+}
+
+// Dakika bilgisini döndürür (0-59 arası).
+fun getMinute() {
+    // Yerel çağrı: native_time.getMinute();
+    return 0;
+}
+
+// Saniye bilgisini döndürür (0-59 arası).
+fun getSecond() {
+    // Yerel çağrı: native_time.getSecond();
+    return 0;
+}

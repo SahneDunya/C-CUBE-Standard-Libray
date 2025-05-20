@@ -1,0 +1,138 @@
+fun getName(entityId) {
+    // Yerel çağrı: native_entity.getName(entityId);
+    return ""; // Yer tutucu
+}
+
+// Bir oyun nesnesinin aktif olup olmadığını döndürür.
+// Aktif olmayan bir entity güncellenmez veya çizilmez.
+fun isActive(entityId) {
+    // Yerel çağrı: native_entity.isActive(entityId);
+    return false; // Yer tutucu
+}
+
+// Bir oyun nesnesinin aktiflik durumunu ayarlar.
+fun setActive(entityId, active) {
+    // Yerel çağrı: native_entity.setActive(entityId, active);
+    return none;
+}
+
+// --- Dönüşüm (Transform) İşlemleri ---
+
+// Bir oyun nesnesinin 3D konumunu ayarlar.
+fun setPosition(entityId, x, y, z) {
+    // Yerel çağrı: native_entity.setPosition(entityId, x, y, z);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D konumunu döndürür.
+// Dönüş değeri: {"x": x, "y": y, "z": z} şeklinde bir Map.
+fun getPosition(entityId) {
+    // Yerel çağrı: native_entity.getPosition(entityId);
+    return {"x": 0.0, "y": 0.0, "z": 0.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesinin 3D dönmesini ayarlar (Euler açıları olarak derece cinsinden).
+fun setRotation(entityId, pitch, yaw, roll) { // Pitch (X), Yaw (Y), Roll (Z)
+    // Yerel çağrı: native_entity.setRotation(entityId, pitch, yaw, roll);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D dönmesini döndürür (Euler açıları olarak derece cinsinden).
+// Dönüş değeri: {"pitch": p, "yaw": y, "roll": r} şeklinde bir Map.
+fun getRotation(entityId) {
+    // Yerel çağrı: native_entity.getRotation(entityId);
+    return {"pitch": 0.0, "yaw": 0.0, "roll": 0.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesinin 3D ölçeğini ayarlar.
+fun setScale(entityId, x, y, z) {
+    // Yerel çağrı: native_entity.setScale(entityId, x, y, z);
+    return none;
+}
+
+// Bir oyun nesnesinin 3D ölçeğini döndürür.
+// Dönüş değeri: {"x": x, "y": y, "z": z} şeklinde bir Map.
+fun getScale(entityId) {
+    // Yerel çağrı: native_entity.getScale(entityId);
+    return {"x": 1.0, "y": 1.0, "z": 1.0}; // Yer tutucu
+}
+
+// Bir oyun nesnesini belirli bir vektör kadar hareket ettirir (yerel uzayda).
+fun translate(entityId, dx, dy, dz) {
+    // Yerel çağrı: native_entity.translate(entityId, dx, dy, dz);
+    return none;
+}
+
+// Bir oyun nesnesini belirli açılar kadar döndürür (yerel uzayda, derece cinsinden).
+fun rotate(entityId, dpitch, dyaw, droll) {
+    // Yerel çağrı: native_entity.rotate(entityId, dpitch, dyaw, droll);
+    return none;
+}
+
+// --- Bileşen (Component) Yönetimi ---
+
+// Bir oyun nesnesine yeni bir bileşen ekler.
+// componentType: Eklenecek bileşenin türü (örn: "Renderer", "Physics", "Script").
+// config: Bileşenin başlatma ayarları (bir map objesi, isteğe bağlı).
+fun addComponent(entityId, componentType, config) {
+    // Yerel çağrı: native_entity.addComponent(entityId, componentType, config);
+    return none;
+}
+
+// Bir oyun nesnesinden belirli bir türdeki bileşeni kaldırır.
+fun removeComponent(entityId, componentType) {
+    // Yerel çağrı: native_entity.removeComponent(entityId, componentType);
+    return none;
+}
+
+// Bir oyun nesnesinde belirli bir türde bileşenin olup olmadığını kontrol eder.
+fun hasComponent(entityId, componentType) {
+    // Yerel çağrı: native_entity.hasComponent(entityId, componentType);
+    return false; // Yer tutucu
+}
+
+// Belirli bir bileşenin etkinliğini ayarlar.
+fun setComponentEnabled(entityId, componentType, enabled) {
+    // Yerel çağrı: native_entity.setComponentEnabled(entityId, componentType, enabled);
+    return none;
+}
+
+// Belirli bir bileşenin etkin olup olmadığını döndürür.
+fun isComponentEnabled(entityId, componentType) {
+    // Yerel çağrı: native_entity.isComponentEnabled(entityId, componentType);
+    return false; // Yer tutucu
+}
+
+// Bir bileşenin belirli bir özelliğini ayarlar.
+// Bu fonksiyon genellikle C++ tarafında bileşenin türüne göre özel bir setter çağırır.
+fun setComponentProperty(entityId, componentType, propertyName, value) {
+    // Yerel çağrı: native_entity.setComponentProperty(entityId, componentType, propertyName, value);
+    return none;
+}
+
+// Bir bileşenin belirli bir özelliğini döndürür.
+fun getComponentProperty(entityId, componentType, propertyName) {
+    // Yerel çağrı: native_entity.getComponentProperty(entityId, componentType, propertyName);
+    return none; // Yer tutucu
+}
+
+// --- Hiyerarşi Yönetimi ---
+
+// Bir oyun nesnesinin üst nesnesini ayarlar.
+// parentId: Yeni üst nesnenin kimliği (none ise üst nesnesiz yapar).
+fun setParent(entityId, parentId) {
+    // Yerel çağrı: native_entity.setParent(entityId, parentId);
+    return none;
+}
+
+// Bir oyun nesnesinin üst nesnesinin ID'sini döndürür.
+fun getParent(entityId) {
+    // Yerel çağrı: native_entity.getParent(entityId);
+    return none; // Yer tutucu ID veya none
+}
+
+// Bir oyun nesnesinin alt nesnelerinin bir listesini döndürür.
+fun getChildren(entityId) {
+    // Yerel çağrı: native_entity.getChildren(entityId);
+    return []; // Yer tutucu (ID listesi)
+}

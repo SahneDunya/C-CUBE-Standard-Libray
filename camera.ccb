@@ -1,0 +1,119 @@
+fun createCamera() {
+    // Yerel çağrı: native_camera.createCamera();
+    return 0; // Yer tutucu ID (0 hata veya none)
+}
+
+// Belirli bir kamerayı aktif render kamerası olarak ayarlar.
+// Yalnızca aktif kamera oyun dünyasını render eder.
+fun setActiveCamera(cameraId) {
+    // Yerel çağrı: native_camera.setActiveCamera(cameraId);
+    print("Aktif kamera ayarlandı: " + cameraId);
+    return none;
+}
+
+// Aktif kameranın ID'sini döndürür.
+fun getActiveCamera() {
+    // Yerel çağrı: native_camera.getActiveCamera();
+    return 0; // Yer tutucu ID
+}
+
+// --- Kamera Dönüşüm (Transform) Kontrolü ---
+// Bu fonksiyonlar, kameranın dünya uzayındaki konumunu ve yönünü doğrudan kontrol eder.
+
+// Kameranın 3D konumunu ayarlar.
+fun setPosition(cameraId, x, y, z) {
+    // Yerel çağrı: native_camera.setPosition(cameraId, x, y, z);
+    return none;
+}
+
+// Kameranın 3D konumunu döndürür.
+// Dönüş değeri: {"x": x, "y": y, "z": z} şeklinde bir Map.
+fun getPosition(cameraId) {
+    // Yerel çağrı: native_camera.getPosition(cameraId);
+    return {"x": 0.0, "y": 0.0, "z": 0.0}; // Yer tutucu
+}
+
+// Kameranın 3D dönmesini ayarlar (Euler açıları olarak derece cinsinden).
+// Yaw: Y ekseni etrafında dönüş (sağa/sola bakış), Pitch: X ekseni etrafında dönüş (yukarı/aşağı bakış).
+// Roll: Z ekseni etrafında dönüş (yana yatış).
+fun setRotation(cameraId, pitch, yaw, roll) {
+    // Yerel çağrı: native_camera.setRotation(cameraId, pitch, yaw, roll);
+    return none;
+}
+
+// Kameranın 3D dönmesini döndürür (Euler açıları olarak derece cinsinden).
+// Dönüş değeri: {"pitch": p, "yaw": y, "roll": r} şeklinde bir Map.
+fun getRotation(cameraId) {
+    // Yerel çağrı: native_camera.getRotation(cameraId);
+    return {"pitch": 0.0, "yaw": 0.0, "roll": 0.0}; // Yer tutucu
+}
+
+// Kamerayı belirli bir noktaya baktırır.
+// targetX, targetY, targetZ: Kameranın bakacağı nokta.
+// upX, upY, upZ: Kameranın "yukarı" yön vektörü (genellikle (0, 1, 0) dikey için).
+fun lookAt(cameraId, targetX, targetY, targetZ, upX, upY, upZ) {
+    // Yerel çağrı: native_camera.lookAt(cameraId, targetX, targetY, targetZ, upX, upY, upZ);
+    return none;
+}
+
+// --- Kamera Projeksiyon Ayarları ---
+// Bu ayarlar, 3D dünyanın ekranda nasıl görüntüleneceğini belirler.
+
+// Kameranın görüş alanını (Field of View - FOV) ayarlar (derece cinsinden).
+fun setFOV(cameraId, fovDegrees) {
+    // Yerel çağrı: native_camera.setFOV(cameraId, fovDegrees);
+    return none;
+}
+
+// Kameranın yakın (near) kırpma düzlemini ayarlar.
+// Bu düzlemden daha yakın nesneler render edilmez.
+fun setNearClipPlane(cameraId, distance) {
+    // Yerel çağrı: native_camera.setNearClipPlane(cameraId, distance);
+    return none;
+}
+
+// Kameranın uzak (far) kırpma düzlemini ayarlar.
+// Bu düzlemden daha uzak nesneler render edilmez.
+fun setFarClipPlane(cameraId, distance) {
+    // Yerel çağrı: native_camera.setFarClipPlane(cameraId, distance);
+    return none;
+}
+
+// Kamerayı ortografik moda ayarlar (2D oyunlar veya belirli 3D görünümler için).
+// width, height: Ortografik görünümün dünya birimi cinsinden genişliği ve yüksekliği.
+fun setOrthographic(cameraId, width, height) {
+    // Yerel çağrı: native_camera.setOrthographic(cameraId, width, height);
+    return none;
+}
+
+// Kamerayı perspektif moda ayarlar (varsayılan 3D oyunlar için).
+fun setPerspective(cameraId) {
+    // Yerel çağrı: native_camera.setPerspective(cameraId);
+    return none;
+}
+
+// --- Kamera Takip ve Modları (İsteğe Bağlı Gelişmiş Fonksiyonlar) ---
+
+// Kameranın belirli bir entity'yi takip etmesini sağlar.
+// cameraId: Takip edecek kamera ID'si.
+// targetEntityId: Takip edilecek entity'nin ID'si.
+// offsetX, offsetY, offsetZ: Hedefe göre kamera uzaklığı.
+// smoothFactor: Takip yumuşaklığı (0.0 - 1.0 arası, 1.0 anında takip).
+fun followTarget(cameraId, targetEntityId, offsetX, offsetY, offsetZ, smoothFactor) {
+    // Yerel çağrı: native_camera.followTarget(cameraId, targetEntityId, offsetX, offsetY, offsetZ, smoothFactor);
+    return none;
+}
+
+// --- Yardımcı Fonksiyonlar ---
+
+// Dünya koordinatlarını ekran (piksel) koordinatlarına dönüştürür.
+fun worldToScreen(cameraId, worldX, worldY, worldZ) {
+    // Yerel çağrı: native_camera.worldToScreen(cameraId, worldX, worldY, worldZ);
+    return {"x": 0, "y": 0}; // Yer tutucu (pixel koordinatları)
+}
+
+// Ekran (piksel) koordinatlarını dünya koordinatlarına dönüştürür (belirli bir derinlikte).
+fun screenToWorld(cameraId, screenX, screenY, depth) {
+    // Yerel çağrı: native_camera.screenToWorld(cameraId, screenX, screenY, depth);
+    return {"x": 0.0, "y": 0.0, "z": 0.0}; // Yer tutucu (dünya koordinatları)
+}
